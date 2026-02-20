@@ -3,564 +3,611 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Esha Teware | Data Science Portfolio</title>
-  <meta name="description" content="Esha Teware — Data Science portfolio (ML, NLP, analytics, dashboards)." />
+  <title>Esha Teware | Data Scientist</title>
 
   <style>
     :root{
-      --bg:#f6f7fb;
-      --card:#ffffff;
+      --bg:#ffffff;
       --text:#0f172a;
       --muted:#475569;
       --muted2:#64748b;
-      --border:#e8ecf3;
-      --shadow: 0 10px 30px rgba(2,6,23,0.06);
+      --border:#e8edf5;
+      --shadow: 0 10px 30px rgba(2,6,23,0.07);
       --shadow2: 0 6px 18px rgba(2,6,23,0.06);
       --radius: 18px;
       --blue:#2563eb;
+      --blue2:#1d4ed8;
       --chip:#eef2ff;
       --chipText:#1e40af;
+      --soft:#f6f8fc;
     }
 
     *{box-sizing:border-box}
-    html, body { height:100%; }
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
-      background: var(--bg);
-      line-height:1.55;
-      font-size: 16px;
-      overflow:hidden; /* keeps the page from becoming a long scroll */
-    }
-    a{color:inherit; text-decoration:none}
-    .container{
-      max-width: 1320px; /* reduces empty side space */
-      margin: 0 auto;
-      padding: 18px 18px 22px;
-      height:100%;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
+      background:var(--bg);
+      line-height:1.6;
+      font-size: 16.5px;
     }
 
-    /* Top nav */
-    .topbar{
-      background: var(--card);
-      border:1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: var(--shadow2);
-      padding: 12px 14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      position:sticky;
+    .container{
+      max-width: 1280px;   /* reduces empty side space */
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    /* Top Nav */
+    .navWrap{
+      position: sticky;
       top:0;
-      z-index:10;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight: 800;
-      letter-spacing:0.2px;
-      white-space:nowrap;
-    }
-    .brandDot{
-      width:10px;height:10px;border-radius:999px;background:var(--blue);
-      box-shadow: 0 0 0 6px rgba(37,99,235,0.10);
+      z-index:50;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
     }
     .nav{
       display:flex;
       align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 16px;
     }
-    .nav a, .nav button{
-      font: inherit;
-      background: transparent;
-      border: none;
-      cursor:pointer;
-      padding: 8px 10px;
-      border-radius: 12px;
+    .brand{
+      font-weight: 900;
+      letter-spacing:-0.02em;
+      font-size: 20px;
+    }
+    .navlinks{
+      display:flex;
+      gap: 18px;
+      flex-wrap:wrap;
       color: var(--muted);
-      font-weight: 600;
+      font-weight: 650;
     }
-    .nav a:hover, .nav button:hover{
-      background: #f1f5ff;
-      color: var(--text);
-    }
-
-    /* Dropdown */
-    .dropdown{ position:relative; }
-    .menu{
-      position:absolute;
-      right:0;
-      top:46px;
-      width: 240px;
-      background: var(--card);
-      border:1px solid var(--border);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      padding: 10px;
-      display:none;
-    }
-    .menu.open{ display:block; }
-    .menuTitle{ font-weight:800; margin:6px 8px 10px; font-size:13px; color:var(--muted2); text-transform:uppercase; letter-spacing:0.06em;}
-    .menuItem{
-      width:100%;
-      text-align:left;
-      padding:10px 10px;
-      border-radius: 12px;
-      border:1px solid transparent;
-      background: transparent;
-      cursor:pointer;
-      font-weight:650;
-      color: var(--text);
-    }
-    .menuItem:hover{
-      background:#f8fafc;
-      border-color: var(--border);
-    }
-    .menuItem small{ color: var(--muted2); font-weight:600; }
-
-    /* Layout */
-    .main{
-      flex:1;
-      display:grid;
-      grid-template-columns: 360px 1fr; /* left small, right big */
-      gap:14px;
-      min-height:0; /* allows inner scrolling */
-    }
-    @media (max-width: 980px){
-      body{ overflow:auto; } /* on mobile, allow normal scroll */
-      .container{ height:auto; }
-      .main{ grid-template-columns: 1fr; }
-    }
-
-    .card{
-      background: var(--card);
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow2);
-    }
-
-    /* Left panel */
-    .left{
-      padding: 16px;
+    .navlinks a{color:inherit; text-decoration:none}
+    .navlinks a:hover{color: var(--text)}
+    .navRight{
       display:flex;
-      flex-direction:column;
-      gap:12px;
-      min-height:0;
-    }
-    .profileRow{
-      display:flex;
-      gap:12px;
+      gap: 10px;
       align-items:center;
-    }
-    .avatar{
-      width:68px;height:68px;border-radius:16px;
-      border:1px solid var(--border);
-      overflow:hidden;
-      background:#f1f5f9;
-      flex:0 0 auto;
-    }
-    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .name{ font-weight:900; font-size:20px; margin:0; }
-    .role{ color: var(--muted); font-weight:650; margin-top:2px; }
-    .metaLine{ color: var(--muted2); font-size:14px; margin-top:6px; }
-
-    .btnRow{
-      display:flex;
-      gap:10px;
       flex-wrap:wrap;
-      margin-top:6px;
     }
     .btn{
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:10px;
-      padding: 10px 12px;
+      padding: 10px 14px;
       border-radius: 14px;
-      border:1px solid var(--border);
-      background:#fff;
-      font-weight:750;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-weight: 800;
       color: var(--text);
+      text-decoration:none;
+      box-shadow: none;
       cursor:pointer;
     }
     .btn.primary{
       background: var(--blue);
       border-color: var(--blue);
-      color:#fff;
+      color: #fff;
     }
-    .btn:hover{ box-shadow: 0 8px 18px rgba(2,6,23,0.07); transform: translateY(-1px); }
+    .btn.primary:hover{background: var(--blue2)}
+    .btn:hover{box-shadow: var(--shadow2); transform: translateY(-1px)}
 
-    .sectionTitle{
-      font-size:13px;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      color: var(--muted2);
-      margin: 8px 0 8px;
-      font-weight: 900;
+    /* Hero */
+    .hero{
+      padding: 34px 0 24px;
     }
-    .block{
-      border:1px solid var(--border);
-      border-radius: 16px;
-      padding: 12px;
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items:center;
+    }
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns:1fr}
+    }
+    .hello{
+      color: var(--blue);
+      font-weight: 800;
+      margin:0 0 10px;
+    }
+    h1{
+      margin:0;
+      font-size: 56px;
+      line-height:1.05;
+      letter-spacing:-0.03em;
+    }
+    @media (max-width: 520px){ h1{font-size: 44px;} }
+    .role{
+      margin: 10px 0 14px;
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing:-0.02em;
+    }
+    .lead{
+      margin:0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 640px;
+    }
+    .heroActions{
+      margin-top: 18px;
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .iconRow{
+      margin-top: 16px;
+      display:flex;
+      gap: 14px;
+      align-items:center;
+      color: var(--muted);
+    }
+    .iconLink{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color: var(--muted);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .iconLink:hover{color: var(--text)}
+
+    .heroCard{
+      border-radius: 26px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
       background: #fff;
+      position:relative;
     }
-    .eduItem{ display:flex; justify-content:space-between; gap:10px; }
-    .eduItem b{ font-weight:850; }
-    .eduSub{ color: var(--muted); font-weight:650; margin-top:4px; }
-    .eduSmall{ color: var(--muted2); font-size:13.8px; margin-top:4px; }
-    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .heroImg{
+      width:100%;
+      height: 420px;
+      object-fit: cover;
+      display:block;
+      background: var(--soft);
+    }
+    .statBadge{
+      position:absolute;
+      right: 18px;
+      bottom: 18px;
+      background:#fff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow2);
+      border-radius: 18px;
+      padding: 14px 16px;
+      min-width: 240px;
+    }
+    .statBadge .small{color: var(--muted2); font-weight: 750; font-size: 14px;}
+    .statBadge .big{font-weight: 950; font-size: 28px; margin-top: 4px;}
+
+    /* Section headings */
+    .section{
+      padding: 26px 0;
+    }
+    .sectionTitle{
+      text-align:center;
+      font-size: 44px;
+      font-weight: 950;
+      letter-spacing:-0.03em;
+      margin: 0;
+    }
+    .sectionSub{
+      text-align:center;
+      color: var(--muted);
+      max-width: 820px;
+      margin: 10px auto 0;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    /* Cards grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
+
+    .card{
+      background:#fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow2);
+      padding: 18px;
+    }
+    .cardTop{
+      display:flex;
+      gap: 14px;
+      align-items:center;
+    }
+    .iconBox{
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: #eef4ff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--blue);
+      font-weight: 950;
+      font-size: 18px;
+      border: 1px solid #dbe6ff;
+    }
+    .card h3{
+      margin:0;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing:-0.02em;
+    }
+    .chips{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+    }
     .chip{
       background: var(--chip);
+      border: 1px solid #dfe6ff;
       color: var(--chipText);
-      border:1px solid #dfe6ff;
-      padding: 6px 10px;
+      padding: 7px 12px;
       border-radius: 999px;
-      font-size: 13px;
       font-weight: 750;
-      white-space:nowrap;
+      font-size: 14px;
     }
-    .skillLine{ color: var(--muted); font-size:14.6px; margin-top:8px; }
-    .skillLine b{ color: var(--text); }
 
-    /* Right panel */
-    .right{
-      padding: 16px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      min-height:0;
+    /* Projects */
+    .projGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
     }
-    .rightHeader{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
+    @media (max-width: 1100px){ .projGrid{grid-template-columns:1fr 1fr;} }
+    @media (max-width: 780px){ .projGrid{grid-template-columns:1fr;} }
+
+    .proj{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow2);
+      overflow:hidden;
     }
-    .title{
+    .projImg{
+      height: 190px;
+      background: var(--soft);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--muted2);
+      font-weight: 900;
+    }
+    .projBody{
+      padding: 18px;
+    }
+    .projTitle{
       margin:0;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 950;
       letter-spacing:-0.02em;
     }
-    .subtitle{
-      margin:6px 0 0;
+    .projDesc{
+      margin: 10px 0 0;
       color: var(--muted);
-      font-weight: 600;
+      font-size: 16px;
+      line-height:1.5;
     }
-    .activeFilter{
-      color: var(--muted2);
-      font-weight: 700;
-      font-size: 14px;
-      background:#f8fafc;
-      border:1px solid var(--border);
-      padding: 8px 10px;
-      border-radius: 14px;
+    .projLinks{
+      margin-top: 14px;
+      display:flex;
+      gap: 14px;
+      flex-wrap:wrap;
+      align-items:center;
     }
+    .link{
+      color: var(--blue);
+      font-weight: 850;
+      text-decoration:none;
+    }
+    .link:hover{text-decoration:underline}
 
-    .projectsArea{
-      flex:1;
-      min-height:0;
-      overflow:auto; /* scroll ONLY inside the projects area */
-      padding-right:6px;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap:12px;
-    }
-    @media (max-width: 1200px){ .grid{ grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 980px){ .projectsArea{ overflow:visible; } .grid{ grid-template-columns: 1fr; } }
-
-    .proj{
-      border:1px solid var(--border);
-      border-radius: 18px;
-      background:#fff;
-      box-shadow: 0 6px 14px rgba(2,6,23,0.05);
-      overflow:hidden;
+    /* Experience */
+    .timeline{
+      max-width: 980px;
+      margin: 24px auto 0;
       display:flex;
       flex-direction:column;
-      min-height: 240px;
+      gap: 18px;
     }
-    .projImg{
-      height: 120px;
-      background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(99,102,241,0.06));
+    .job{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow2);
+      padding: 18px;
       display:flex;
-      align-items:center;
-      justify-content:center;
+      gap: 14px;
+      align-items:flex-start;
+      justify-content:space-between;
+    }
+    .jobLeft{
+      display:flex;
+      gap: 14px;
+      align-items:flex-start;
+      flex:1;
+    }
+    .jobTitle{
+      font-weight: 950;
+      font-size: 22px;
+      margin:0;
+      letter-spacing:-0.02em;
+    }
+    .jobOrg{
+      color: var(--blue);
+      font-weight: 850;
+      margin-top: 4px;
+      text-decoration:none;
+    }
+    .jobOrg:hover{text-decoration:underline}
+    .jobDesc{
+      color: var(--muted);
+      margin-top: 10px;
+      font-weight: 600;
+    }
+    .jobRight{
       color: var(--muted2);
       font-weight: 800;
+      white-space:nowrap;
+      padding-top: 4px;
     }
-    .projBody{ padding: 12px; display:flex; flex-direction:column; gap:10px; }
-    .projTitle{ font-weight: 900; font-size: 16.5px; margin:0; }
-    .projDesc{ margin:0; color: var(--muted); font-size: 14.6px; }
-    .projTags{ display:flex; gap:8px; flex-wrap:wrap; }
-    .tag{
-      background:#f1f5ff;
-      border:1px solid #dbe6ff;
-      color:#1e40af;
-      padding: 5px 9px;
-      border-radius:999px;
-      font-size: 12.8px;
-      font-weight: 750;
-    }
-    .projLinks{ display:flex; gap:12px; flex-wrap:wrap; margin-top:auto; }
-    .link{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      color: var(--blue);
-      font-weight: 800;
-      font-size: 14px;
-    }
-    .link:hover{ text-decoration:underline; }
-
-    /* Contact modal */
-    .modalBack{
-      position:fixed; inset:0;
-      background: rgba(2,6,23,0.40);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding: 18px;
-      z-index: 50;
-    }
-    .modalBack.open{ display:flex; }
-    .modal{
-      width: min(720px, 100%);
-      background:#fff;
-      border-radius: 18px;
-      border:1px solid var(--border);
-      box-shadow: var(--shadow);
-      padding: 14px;
-    }
-    .modalTop{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding: 6px 6px 10px; }
-    .modalTop h3{ margin:0; font-size:18px; font-weight:950; }
-    .closeBtn{
-      border:1px solid var(--border);
-      background:#fff;
-      border-radius: 12px;
-      padding: 8px 10px;
-      cursor:pointer;
-      font-weight: 850;
+    ul{
+      margin: 10px 0 0 18px;
       color: var(--muted);
+      font-weight: 650;
     }
-    .formGrid{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; padding: 6px; }
-    @media (max-width: 700px){ .formGrid{ grid-template-columns:1fr; } }
+    li{margin:6px 0}
+
+    /* Contact */
+    .contactCard{
+      max-width: 980px;
+      margin: 24px auto 0;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow2);
+      padding: 18px;
+    }
+    .formGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 780px){ .formGrid{grid-template-columns:1fr;} }
     input, textarea{
       width:100%;
-      border-radius: 14px;
+      border-radius: 16px;
       border:1px solid var(--border);
-      background:#fff;
-      padding: 11px 12px;
-      font-size: 15px;
+      padding: 12px 12px;
+      font-size: 16px;
       outline:none;
-      color: var(--text);
+      background:#fff;
     }
-    textarea{ min-height: 130px; resize: vertical; grid-column: 1 / -1; }
-    .modalActions{ display:flex; gap:10px; flex-wrap:wrap; padding: 6px; }
-    .hint{ color: var(--muted2); font-size: 13.5px; padding: 0 6px 8px; }
+    textarea{grid-column:1/-1; min-height: 140px; resize:vertical;}
+    .foot{
+      text-align:center;
+      color: var(--muted2);
+      padding: 26px 0 34px;
+      font-weight: 650;
+    }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- TOP NAV -->
-    <div class="topbar">
-      <div class="brand">
-        <span class="brandDot"></span>
-        Esha Teware
-      </div>
-
+  <!-- NAV -->
+  <div class="navWrap">
+    <div class="container">
       <div class="nav">
-        <a href="#" onclick="setFilter('All'); return false;">Home</a>
-
-        <a href="#" onclick="scrollProjectsTop(); return false;">Projects</a>
-
-        <div class="dropdown">
-          <button id="projectsBtn" onclick="toggleMenu()">Project Filters ▾</button>
-          <div id="menu" class="menu">
-            <div class="menuTitle">Filter projects</div>
-            <button class="menuItem" onclick="setFilter('All')">All <small>(show everything)</small></button>
-            <button class="menuItem" onclick="setFilter('Python')">Python</button>
-            <button class="menuItem" onclick="setFilter('R')">R</button>
-            <button class="menuItem" onclick="setFilter('SQL')">SQL</button>
-            <button class="menuItem" onclick="setFilter('Power BI')">Power BI</button>
-            <button class="menuItem" onclick="setFilter('NLP')">NLP</button>
-            <button class="menuItem" onclick="setFilter('ML')">Machine Learning</button>
-          </div>
+        <div class="brand">Esha<span style="color:var(--blue)">.</span></div>
+        <div class="navlinks">
+          <a href="#home">Home</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
         </div>
-
-        <button onclick="openContact()">Contact</button>
+        <div class="navRight">
+          <a class="btn" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/e-teware/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn primary" href="assets/Esha_Teware_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        </div>
       </div>
     </div>
+  </div>
 
-    <!-- MAIN LAYOUT -->
-    <div class="main">
+  <!-- HERO -->
+  <div id="home" class="hero">
+    <div class="container">
+      <div class="heroGrid">
+        <div>
+          <p class="hello">Hello, I'm</p>
+          <h1>Esha Teware</h1>
+          <div class="role">Data Scientist</div>
+          <p class="lead">
+            Washington, D.C. • M.S. Data Science (American University, May 2026) • B.S. Data Science (Penn State).
+            I work on machine learning, NLP, and analytics—turning complex data into actionable insights through modeling and compelling visualization.
+          </p>
 
-      <!-- LEFT PROFILE -->
-      <div class="card left">
-        <div class="profileRow">
-          <div class="avatar">
-            <img src="assets/profile.jpg" alt="Esha Teware profile photo">
+          <div class="heroActions">
+            <a class="btn primary" href="#projects">View My Work →</a>
+            <a class="btn" href="#contact">Contact Me</a>
           </div>
-          <div>
-            <div class="name">Esha Teware</div>
-            <div class="role">M.S. Data Science • American University</div>
-            <div class="metaLine">Washington, D.C. • Graduation: May 2026</div>
-          </div>
-        </div>
 
-        <div class="btnRow">
-          <a class="btn primary" href="https://www.linkedin.com/in/e-teware/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="assets/Esha_Teware_Resume.pdf" target="_blank" rel="noreferrer">Resume (PDF)</a>
-          <button class="btn" onclick="openContact()">Contact</button>
-        </div>
-
-        <div class="block">
-          <div class="sectionTitle">About</div>
-          <div style="color:var(--muted); font-size:14.8px;">
-            M.S. Data Science student at American University (May 2026) with a B.S. in Data Science from Penn State.
-            Prior experience as a Data Scientist in FP&amp;A supporting forecasting and decision-making.
-            Interested in applied ML/NLP, analytics, and dashboards for real-world impact.
+          <div class="iconRow">
+            <a class="iconLink" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a class="iconLink" href="https://www.linkedin.com/in/e-teware/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a class="iconLink" href="mailto:eshateware44@gmail.com">Email ↗</a>
           </div>
         </div>
 
-        <div class="block">
-          <div class="sectionTitle">Education</div>
+        <div class="heroCard">
+          <!-- Upload a nice image to assets/hero.jpg OR keep this and it will just show a gray placeholder -->
+          <img class="heroImg" src="assets/hero.jpg" alt="Workspace image" onerror="this.style.display='none'">
+          <div class="projImg" style="height:420px; display:none;" id="fallbackHero">Add assets/hero.jpg</div>
 
-          <div class="eduItem">
-            <div><b>American University</b></div>
-            <div class="eduSmall">Jan 2025 – May 2026</div>
-          </div>
-          <div class="eduSub">MS, Data Science</div>
-          <div class="eduSmall"><b>GPA:</b> 3.92/4.0</div>
-
-          <div style="height:10px;"></div>
-
-          <div class="eduItem">
-            <div><b>Pennsylvania State University</b></div>
-            <div class="eduSmall">Aug 2018 – May 2023</div>
-          </div>
-          <div class="eduSub">BS, Data Science</div>
-          <div class="eduSmall"><b>GPA:</b> 3.5/4.0</div>
-        </div>
-
-        <div class="block">
-          <div class="sectionTitle">Skills</div>
-
-          <div class="skillLine"><b>Languages:</b> Python, R, SQL</div>
-          <div class="skillLine">
-            <b>Libraries &amp; Frameworks:</b>
-            Pandas, NumPy, Scikit-learn, Matplotlib, StatsModels, PyTorch, Tidyverse, ggplot, Shiny
-          </div>
-          <div class="skillLine"><b>Platforms &amp; Software:</b> Tableau, Power BI, Snowflake, Excel</div>
-
-          <div class="chips">
-            <span class="chip">Machine Learning</span>
-            <span class="chip">NLP / Embeddings</span>
-            <span class="chip">Dashboards</span>
-            <span class="chip">Forecasting</span>
-            <span class="chip">Reproducible Research</span>
-          </div>
-        </div>
-
-        <div class="block">
-          <div class="sectionTitle">Contact</div>
-          <div class="skillLine">
-            Email: <b>eshateware44 [at] gmail [dot] com</b>
-          </div>
-          <div class="skillLine" style="margin-top:6px;">
-            <a class="link" href="#" onclick="openContact(); return false;">Send a message ↗</a>
+          <div class="statBadge">
+            <div class="small">M.S. Data Science • GPA</div>
+            <div class="big">3.92 / 4.0</div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- RIGHT PROJECTS -->
-      <div class="card right">
-        <div class="rightHeader">
-          <div>
-            <h2 class="title">Projects</h2>
-            <p class="subtitle">Filter by stack (Python/R/SQL/Power BI/NLP). Click “Code” to open the repo.</p>
+  <!-- SKILLS -->
+  <div id="skills" class="section">
+    <div class="container">
+      <h2 class="sectionTitle">Skills &amp; Expertise</h2>
+      <p class="sectionSub">
+        A comprehensive toolkit for end-to-end data science projects—from analysis and modeling to deployment-ready code and visualization.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="cardTop">
+            <div class="iconBox">&lt;/&gt;</div>
+            <h3>Programming</h3>
           </div>
-          <div id="activeFilter" class="activeFilter">Filter: All</div>
+          <div class="chips">
+            <span class="chip">Python</span>
+            <span class="chip">R</span>
+            <span class="chip">SQL</span>
+          </div>
         </div>
 
-        <div id="projectsArea" class="projectsArea">
-          <div id="projectsGrid" class="grid">
+        <div class="card">
+          <div class="cardTop">
+            <div class="iconBox">ML</div>
+            <h3>Machine Learning</h3>
+          </div>
+          <div class="chips">
+            <span class="chip">Scikit-learn</span>
+            <span class="chip">PyTorch</span>
+            <span class="chip">StatsModels</span>
+          </div>
+        </div>
 
-            <!-- ========= PROJECT CARD TEMPLATE =========
-              Add many projects by copy/pasting one of these blocks.
-              data-tags controls filtering. Use tags like:
-              Python, R, SQL, Power BI, NLP, ML, Dashboard, Forecasting, etc.
-            -->
+        <div class="card">
+          <div class="cardTop">
+            <div class="iconBox">📈</div>
+            <h3>Data Visualization</h3>
+          </div>
+          <div class="chips">
+            <span class="chip">Matplotlib</span>
+            <span class="chip">ggplot</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">Tableau</span>
+          </div>
+        </div>
 
-            <div class="proj" data-tags="Python,SQL,Dashboard">
-              <div class="projImg">Crime Trend Analysis</div>
-              <div class="projBody">
-                <p class="projTitle">Crime Trend Analysis</p>
-                <p class="projDesc">Time trends + hotspot insights with clear visuals and storytelling.</p>
-                <div class="projTags">
-                  <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Dashboard</span>
-                </div>
-                <div class="projLinks">
-                  <a class="link" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">Code ↗</a>
-                </div>
-              </div>
+        <div class="card">
+          <div class="cardTop">
+            <div class="iconBox">DE</div>
+            <h3>Data Engineering</h3>
+          </div>
+          <div class="chips">
+            <span class="chip">Pandas</span>
+            <span class="chip">NumPy</span>
+            <span class="chip">Snowflake</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardTop">
+            <div class="iconBox">NLP</div>
+            <h3>NLP</h3>
+          </div>
+          <div class="chips">
+            <span class="chip">Embeddings</span>
+            <span class="chip">Text Classification</span>
+            <span class="chip">Evaluation</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardTop">
+            <div class="iconBox">🧰</div>
+            <h3>Tools &amp; Platforms</h3>
+          </div>
+          <div class="chips">
+            <span class="chip">Git</span>
+            <span class="chip">Jupyter</span>
+            <span class="chip">Excel</span>
+            <span class="chip">Shiny</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div id="projects" class="section" style="background:var(--bg);">
+    <div class="container">
+      <h2 class="sectionTitle">Featured Projects</h2>
+      <p class="sectionSub">
+        A selection of projects demonstrating expertise in machine learning, NLP, analytics, and dashboards.
+      </p>
+
+      <div class="projGrid">
+        <div class="proj">
+          <div class="projImg">Project Image</div>
+          <div class="projBody">
+            <p class="projTitle">Crime Trend Analysis</p>
+            <p class="projDesc">Trend + hotspot analysis with clear visuals and insight-driven recommendations.</p>
+            <div class="chips">
+              <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Visualization</span>
             </div>
-
-            <div class="proj" data-tags="R,ML,Reproducibility">
-              <div class="projImg">Environmental Modeling</div>
-              <div class="projBody">
-                <p class="projTitle">Environmental Behavior Modeling</p>
-                <p class="projDesc">Reproduced a published study, checked assumptions, and proposed extensions.</p>
-                <div class="projTags">
-                  <span class="tag">R</span><span class="tag">ML</span><span class="tag">Reproducibility</span>
-                </div>
-                <div class="projLinks">
-                  <a class="link" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">Code ↗</a>
-                </div>
-              </div>
+            <div class="projLinks">
+              <a class="link" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">Code ↗</a>
             </div>
+          </div>
+        </div>
 
-            <div class="proj" data-tags="Power BI,SQL,Dashboard">
-              <div class="projImg">Interactive Dashboards</div>
-              <div class="projBody">
-                <p class="projTitle">Interactive KPI Dashboards</p>
-                <p class="projDesc">Stakeholder-ready KPIs and reporting in Power BI backed by SQL queries.</p>
-                <div class="projTags">
-                  <span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Dashboard</span>
-                </div>
-                <div class="projLinks">
-                  <a class="link" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">Code ↗</a>
-                </div>
-              </div>
+        <div class="proj">
+          <div class="projImg">Project Image</div>
+          <div class="projBody">
+            <p class="projTitle">Environmental Behavior Modeling</p>
+            <p class="projDesc">Reproducible modeling + critique/extension with clear interpretation.</p>
+            <div class="chips">
+              <span class="chip">R</span><span class="chip">Regression</span><span class="chip">Reproducibility</span>
             </div>
-
-            <div class="proj" data-tags="Python,NLP,ML">
-              <div class="projImg">NLP / Embeddings</div>
-              <div class="projBody">
-                <p class="projTitle">NLP Project (Embeddings)</p>
-                <p class="projDesc">Preprocessing + embeddings + evaluation for classification/retrieval workflows.</p>
-                <div class="projTags">
-                  <span class="tag">Python</span><span class="tag">NLP</span><span class="tag">ML</span>
-                </div>
-                <div class="projLinks">
-                  <a class="link" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">Code ↗</a>
-                </div>
-              </div>
+            <div class="projLinks">
+              <a class="link" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">Code ↗</a>
             </div>
+          </div>
+        </div>
 
-            <!-- Add more projects here -->
-
+        <div class="proj">
+          <div class="projImg">Project Image</div>
+          <div class="projBody">
+            <p class="projTitle">Interactive KPI Dashboards</p>
+            <p class="projDesc">Stakeholder-ready KPI reporting using SQL + Power BI.</p>
+            <div class="chips">
+              <span class="chip">Power BI</span><span class="chip">SQL</span><span class="chip">Dashboards</span>
+            </div>
+            <div class="projLinks">
+              <a class="link" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">Code ↗</a>
+            </div>
           </div>
         </div>
       </div>
@@ -568,86 +615,99 @@
     </div>
   </div>
 
-  <!-- CONTACT MODAL -->
-  <div id="modalBack" class="modalBack" onclick="closeContact(event)">
-    <div class="modal" onclick="event.stopPropagation()">
-      <div class="modalTop">
-        <h3>Contact Esha</h3>
-        <button class="closeBtn" onclick="closeContact()">Close</button>
+  <!-- EXPERIENCE -->
+  <div id="experience" class="section">
+    <div class="container">
+      <h2 class="sectionTitle">Experience &amp; Education</h2>
+      <p class="sectionSub">A journey of continuous learning and professional growth in data science and analytics.</p>
+
+      <div class="timeline">
+        <div class="job">
+          <div class="jobLeft">
+            <div class="iconBox">🏢</div>
+            <div>
+              <p class="jobTitle">Data Scientist (FP&amp;A)</p>
+              <a class="jobOrg" href="#" onclick="return false;">Koch Industries</a>
+              <div class="jobDesc">
+                Supported forecasting and built models to inform strategic decisions.
+              </div>
+            </div>
+          </div>
+          <div class="jobRight">Past Role</div>
+        </div>
+
+        <div class="job">
+          <div class="jobLeft">
+            <div class="iconBox">🎓</div>
+            <div>
+              <p class="jobTitle">M.S. Data Science — American University</p>
+              <div class="jobDesc">January 2025 – May 2026 • GPA 3.92/4.0</div>
+              <ul>
+                <li>Coursework: Statistical Methods, Regression, Statistical Programming in R, Business Insights/Analytics</li>
+              </ul>
+            </div>
+          </div>
+          <div class="jobRight">2025–2026</div>
+        </div>
+
+        <div class="job">
+          <div class="jobLeft">
+            <div class="iconBox">🎓</div>
+            <div>
+              <p class="jobTitle">B.S. Data Science — Penn State University</p>
+              <div class="jobDesc">August 2018 – May 2023 • GPA 3.5/4.0</div>
+            </div>
+          </div>
+          <div class="jobRight">2018–2023</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" class="section" style="background:var(--bg);">
+    <div class="container">
+      <h2 class="sectionTitle">Contact</h2>
+      <p class="sectionSub">Send a message — this will open your email app with the message pre-filled.</p>
+
+      <div class="contactCard">
+        <div class="formGrid">
+          <input id="n" placeholder="Your name" />
+          <input id="s" placeholder="Subject" />
+          <textarea id="m" placeholder="Write your message..."></textarea>
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:12px;">
+          <button class="btn primary" onclick="sendEmail()">Send Email</button>
+          <a class="btn" href="mailto:eshateware44@gmail.com">Email directly</a>
+        </div>
       </div>
 
-      <div class="hint">This will open your email client with the message pre-filled.</div>
-
-      <div class="formGrid">
-        <input id="senderName" placeholder="Your name" />
-        <input id="subject" placeholder="Subject (e.g., Opportunity / Collaboration)" />
-        <textarea id="message" placeholder="Write your message..."></textarea>
-      </div>
-
-      <div class="modalActions">
-        <button class="btn primary" onclick="sendEmail()">Send Email</button>
-        <a class="btn" href="mailto:eshateware44@gmail.com">Email directly</a>
-      </div>
+      <div class="foot">© <span id="y"></span> Esha Teware • GitHub Pages</div>
     </div>
   </div>
 
   <script>
-    // Dropdown
-    const menu = document.getElementById("menu");
-    function toggleMenu(){
-      menu.classList.toggle("open");
-    }
-    document.addEventListener("click", (e) => {
-      const btn = document.getElementById("projectsBtn");
-      if (!btn.contains(e.target) && !menu.contains(e.target)) menu.classList.remove("open");
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Fallback hero image label if assets/hero.jpg missing
+    const img = document.querySelector(".heroImg");
+    img.addEventListener("error", () => {
+      img.style.display = "none";
+      const fb = document.getElementById("fallbackHero");
+      if (fb) fb.style.display = "flex";
     });
 
-    // Projects filtering
-    let currentFilter = "All";
-
-    function setFilter(tag){
-      currentFilter = tag;
-      document.getElementById("activeFilter").textContent = `Filter: ${tag}`;
-      menu.classList.remove("open");
-
-      const cards = document.querySelectorAll(".proj");
-      cards.forEach(card => {
-        const tags = (card.getAttribute("data-tags") || "").split(",").map(t => t.trim());
-        const show = (tag === "All") || tags.includes(tag);
-        card.style.display = show ? "flex" : "none";
-      });
-
-      scrollProjectsTop();
-    }
-
-    function scrollProjectsTop(){
-      const area = document.getElementById("projectsArea");
-      if (area) area.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    // Contact modal
-    function openContact(){
-      document.getElementById("modalBack").classList.add("open");
-    }
-    function closeContact(evt){
-      document.getElementById("modalBack").classList.remove("open");
-    }
     function sendEmail(){
-      const name = document.getElementById("senderName").value.trim();
-      const subject = document.getElementById("subject").value.trim() || "Portfolio message";
-      const msg = document.getElementById("message").value.trim();
+      const name = document.getElementById("n").value.trim();
+      const subject = document.getElementById("s").value.trim() || "Portfolio message";
+      const msg = document.getElementById("m").value.trim();
 
       const to = "eshateware44@gmail.com";
-      const body =
-        (name ? `Name: ${name}\n\n` : "") +
-        (msg ? msg : "Hi Esha,\n\n");
-
-      window.location.href =
-        `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const body = (name ? `Name: ${name}\n\n` : "") + (msg ? msg : "Hi Esha,\n\n");
+      window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
-
-    // default filter
-    setFilter("All");
   </script>
+
 </body>
 </html>
