@@ -31,7 +31,7 @@ export function Experience() {
   return (
     <section id="experience" className="py-20 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-8">
+        <div className="mb-8 text-center">
           <h2 className="text-4xl mb-4">PROFESSIONAL EXPERIENCE</h2>
           <p className="text-gray-600 max-w-2xl">
             Experience delivering analytics, forecasting, and data products across finance and operations.
