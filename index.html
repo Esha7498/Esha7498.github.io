@@ -1,1 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Esha Teware | Data Science Portfolio</title>
+  <meta name="description" content="Esha Teware — M.S. Data Science (American University). Portfolio in ML, NLP, analytics, dashboards, and applied modeling." />
 
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#111936;
+      --muted:#a9b4d0;
+      --text:#e9eeff;
+      --accent:#7c5cff;
+      --accent2:#31d0aa;
+      --border:rgba(255,255,255,0.10);
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1000px 600px at 20% 10%, rgba(124,92,255,0.25), transparent 60%),
+                  radial-gradient(900px 700px at 90% 20%, rgba(49,208,170,0.18), transparent 60%),
+                  radial-gradient(700px 700px at 50% 90%, rgba(124,92,255,0.12), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1080px; margin:0 auto; padding:28px 18px 60px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; margin-bottom:22px;
+    }
+    .brand{font-weight:700; letter-spacing:0.4px}
+    .nav{display:flex; gap:12px; flex-wrap:wrap}
+    .chip{
+      border:1px solid var(--border);
+      padding:8px 12px; border-radius:999px;
+      color:var(--muted);
+      background: rgba(255,255,255,0.04);
+    }
+    .chip:hover{border-color:rgba(124,92,255,0.55); color:var(--text)}
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .heroMain{padding:26px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid rgba(124,92,255,0.35);
+      background: rgba(124,92,255,0.10);
+      color: var(--text);
+      font-size:13px;
+    }
+    .dot{width:8px; height:8px; border-radius:999px; background: var(--accent2); box-shadow:0 0 0 6px rgba(49,208,170,0.12)}
+    h1{margin:14px 0 10px; font-size:38px; line-height:1.1}
+    @media (max-width: 420px){ h1{font-size:32px} }
+    .subtitle{color:var(--muted); margin:0 0 18px; font-size:15.5px}
+    .ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-weight:600;
+    }
+    .btn.primary{
+      border-color: rgba(124,92,255,0.55);
+      background: linear-gradient(135deg, rgba(124,92,255,0.40), rgba(49,208,170,0.20));
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn small{opacity:0.85; font-weight:500}
+    .side{
+      display:flex; flex-direction:column;
+    }
+    .profile{
+      padding:22px; display:flex; flex-direction:column; gap:14px;
+    }
+    .avatar{
+      width:110px; height:110px; border-radius:24px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      overflow:hidden;
+    }
+    .avatar img{width:100%; height:100%; object-fit:cover; display:block}
+    .meta{
+      color:var(--muted); font-size:14px;
+    }
+    .meta b{color:var(--text)}
+    .section{
+      margin-top:18px;
+      padding:22px;
+    }
+    h2{margin:0 0 10px; font-size:18px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+    .item{
+      padding:16px;
+      border:1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(0,0,0,0.18);
+    }
+    .itemTitle{font-weight:700; margin-bottom:6px}
+    .itemText{color:var(--muted); font-size:14px; margin:0}
+    .pillRow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .pill{
+      font-size:12.5px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.12);
+      color:var(--muted);
+      background: rgba(255,255,255,0.04);
+    }
+    .footer{
+      margin-top:26px; color: rgba(233,238,255,0.65);
+      font-size:13px; text-align:center;
+    }
+    .muted{color:var(--muted)}
+    .twoCol{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
+    @media (max-width: 900px){ .twoCol{grid-template-columns:1fr} }
+    .hr{
+      height:1px; background: rgba(255,255,255,0.10);
+      margin:16px 0 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="brand">Esha Teware</div>
+      <div class="nav">
+        <a class="chip" href="#about">About</a>
+        <a class="chip" href="#skills">Skills</a>
+        <a class="chip" href="#projects">Projects</a>
+        <a class="chip" href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="card heroMain">
+        <div class="kicker"><span class="dot"></span> Data Science Portfolio • ML • NLP • Analytics</div>
+        <h1>Turning data into decisions.</h1>
+        <p class="subtitle">
+          M.S. Data Science student at <b>American University</b> (May 2026), with a B.S. in Data Science from <b>Penn State</b>.
+          I build end-to-end solutions—clean data pipelines, strong modeling, and clear stakeholder-ready insights.
+        </p>
+
+        <div class="twoCol">
+          <div class="item">
+            <div class="itemTitle">Location</div>
+            <p class="itemText">Washington, D.C.</p>
+          </div>
+          <div class="item">
+            <div class="itemTitle">Focus Areas</div>
+            <p class="itemText">Financial analytics, operational efficiency, policy & social impact</p>
+          </div>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="https://www.linkedin.com/in/e-teware/" target="_blank" rel="noreferrer">
+            LinkedIn <small>↗</small>
+          </a>
+          <a class="btn" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">
+            GitHub <small>↗</small>
+          </a>
+          <!-- Resume button: you will upload a PDF to /assets/Esha_Teware_Resume.pdf -->
+          <a class="btn" href="assets/Esha_Teware_Resume.pdf" target="_blank" rel="noreferrer">
+            Resume <small>PDF</small>
+          </a>
+          <a class="btn" href="#projects">View Projects</a>
+        </div>
+
+        <div class="hr"></div>
+
+        <div id="about" class="section" style="padding:18px 0 0;">
+          <h2>About me</h2>
+          <p class="muted" style="margin:0">
+            I’m a Master of Science student at American University in Washington, D.C., pursuing an M.S. in Data Science (expected May 2026).
+            My academic background combines statistical rigor with applied analytics; coursework includes Statistical Methods, Regression,
+            Statistical Programming in R, and Business Insights/Analytics.
+            <br><br>
+            Prior to graduate school, I earned a B.S. in Data Science from Penn State University. I also worked as a Data Scientist at Koch Industries
+            in the FP&amp;A division, supporting financial forecasting and building models to inform strategic decisions.
+            Most recently, I’ve focused on projects involving crime trend analysis, environmental behavior modeling,
+            and interactive dashboards using R, Python, SQL, and Power BI.
+            <br><br>
+            I’m passionate about leveraging data to solve complex business and social problems—especially in financial analytics,
+            operational efficiency, and policy impact.
+          </p>
+        </div>
+      </div>
+
+      <div class="card side">
+        <div class="profile">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div class="avatar" title="Upload your image to assets/profile.jpg">
+              <img src="assets/profile.jpg" alt="Esha profile photo" />
+            </div>
+            <div>
+              <div style="font-weight:800; font-size:18px; margin-bottom:4px;">Esha Teware</div>
+              <div class="meta"><b>M.S. Data Science</b> • American University</div>
+              <div class="meta">B.S. Data Science • Penn State University</div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="itemTitle">Current interests</div>
+            <p class="itemText">ML modeling, NLP/embeddings, dashboards, and decision support analytics.</p>
+            <div class="pillRow">
+              <span class="pill">Machine Learning</span>
+              <span class="pill">NLP</span>
+              <span class="pill">Analytics</span>
+              <span class="pill">Dashboards</span>
+              <span class="pill">Forecasting</span>
+            </div>
+          </div>
+
+          <div id="contact" class="item">
+            <div class="itemTitle">Contact</div>
+            <p class="itemText" style="margin:0">Email: <span class="muted">eshateware44 [at] gmail [dot] com</span></p>
+            <p class="itemText" style="margin:6px 0 0">Alt Email: <span class="muted">eshateware44 [at] gmail [dot] com</span></p>
+            <div class="pillRow" style="margin-top:12px">
+              <a class="pill" href="https://www.linkedin.com/in/e-teware/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+              <a class="pill" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">GitHub ↗</a>
+            </div>
+          </div>
+
+          <div class="item" id="skills">
+            <div class="itemTitle">Skills (quick view)</div>
+            <div class="pillRow">
+              <span class="pill">Python</span>
+              <span class="pill">R</span>
+              <span class="pill">SQL</span>
+              <span class="pill">Power BI</span>
+              <span class="pill">Pandas</span>
+              <span class="pill">scikit-learn</span>
+              <span class="pill">Stats / Regression</span>
+              <span class="pill">Model Evaluation</span>
+              <span class="pill">NLP: Embeddings</span>
+              <span class="pill">Text Classification</span>
+              <span class="pill">Git</span>
+            </div>
+            <p class="itemText" style="margin-top:10px">
+              Add more as you like (e.g., Snowflake/Tableau, PyTorch, TensorFlow, AWS, etc.).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card section" id="projects">
+      <h2>Featured Projects</h2>
+      <div class="grid">
+        <div class="item">
+          <div class="itemTitle">Project 1 — Crime Trend Analysis</div>
+          <p class="itemText">Time-based trends, geospatial patterns, and insight-driven recommendations.</p>
+          <div class="pillRow">
+            <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">Visualization</span>
+          </div>
+          <p class="itemText" style="margin-top:10px">
+            Repo: <span class="muted">Add link here</span>
+          </p>
+        </div>
+
+        <div class="item">
+          <div class="itemTitle">Project 2 — Environmental Behavior Modeling</div>
+          <p class="itemText">Reproducibility-focused modeling + critique/extension with clear interpretation.</p>
+          <div class="pillRow">
+            <span class="pill">R</span><span class="pill">Regression</span><span class="pill">Reproducibility</span>
+          </div>
+          <p class="itemText" style="margin-top:10px">
+            Repo: <span class="muted">Add link here</span>
+          </p>
+        </div>
+
+        <div class="item">
+          <div class="itemTitle">Project 3 — Interactive Dashboards</div>
+          <p class="itemText">Stakeholder-ready dashboards and KPI design for decision support.</p>
+          <div class="pillRow">
+            <span class="pill">Power BI</span><span class="pill">SQL</span><span class="pill">Storytelling</span>
+          </div>
+          <p class="itemText" style="margin-top:10px">
+            Repo: <span class="muted">Add link here</span>
+          </p>
+        </div>
+
+        <div class="item">
+          <div class="itemTitle">Project 4 — NLP / Embeddings</div>
+          <p class="itemText">Text embeddings, evaluation, and modeling workflows (classification / retrieval).</p>
+          <div class="pillRow">
+            <span class="pill">NLP</span><span class="pill">Embeddings</span><span class="pill">Modeling</span>
+          </div>
+          <p class="itemText" style="margin-top:10px">
+            Repo: <span class="muted">Add link here</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      © <span id="y"></span> Esha Teware • Built with GitHub Pages
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
