@@ -4,404 +4,650 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Esha Teware | Data Science Portfolio</title>
-  <meta name="description" content="Esha Teware — M.S. Data Science (American University). Portfolio in ML, NLP, analytics, dashboards, and applied modeling." />
+  <meta name="description" content="Esha Teware — Data Science portfolio (ML, NLP, analytics, dashboards)." />
 
   <style>
     :root{
-      --bg:#0b1020;
-      --card:#111936;
-      --muted:#a9b4d0;
-      --text:#e9eeff;
-      --accent:#7c5cff;
-      --accent2:#31d0aa;
-      --border:rgba(255,255,255,0.10);
-      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --muted2:#64748b;
+      --border:#e8ecf3;
+      --shadow: 0 10px 30px rgba(2,6,23,0.06);
+      --shadow2: 0 6px 18px rgba(2,6,23,0.06);
       --radius: 18px;
+      --blue:#2563eb;
+      --chip:#eef2ff;
+      --chipText:#1e40af;
     }
+
     *{box-sizing:border-box}
+    html, body { height:100%; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1000px 600px at 20% 10%, rgba(124,92,255,0.25), transparent 60%),
-                  radial-gradient(900px 700px at 90% 20%, rgba(49,208,170,0.18), transparent 60%),
-                  radial-gradient(700px 700px at 50% 90%, rgba(124,92,255,0.12), transparent 60%),
-                  var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
-      line-height:1.6;
-      font-size: 16.5px; /* ~1 point bigger */
+      background: var(--bg);
+      line-height:1.55;
+      font-size: 16px;
+      overflow:hidden; /* keeps the page from becoming a long scroll */
     }
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 60px}
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; margin-bottom:22px;
-    }
-    .brand{font-weight:800; letter-spacing:0.4px}
-    .nav{display:flex; gap:12px; flex-wrap:wrap}
-    .chip{
-      border:1px solid var(--border);
-      padding:8px 12px; border-radius:999px;
-      color:var(--muted);
-      background: rgba(255,255,255,0.04);
-    }
-    .chip:hover{border-color:rgba(124,92,255,0.55); color:var(--text)}
-    .hero{
-      display:grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-    }
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .heroMain{padding:26px}
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px; border-radius:999px;
-      border:1px solid rgba(124,92,255,0.35);
-      background: rgba(124,92,255,0.10);
-      color: var(--text);
-      font-size:14px;
-    }
-    .dot{width:8px; height:8px; border-radius:999px; background: var(--accent2); box-shadow:0 0 0 6px rgba(49,208,170,0.12)}
-    h1{margin:14px 0 10px; font-size:40px; line-height:1.1}
-    @media (max-width: 420px){ h1{font-size:34px} }
-    .subtitle{color:var(--muted); margin:0 0 18px; font-size:16px}
-    .ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,0.05);
-      color: var(--text);
-      font-weight:700;
-    }
-    .btn.primary{
-      border-color: rgba(124,92,255,0.55);
-      background: linear-gradient(135deg, rgba(124,92,255,0.40), rgba(49,208,170,0.20));
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .btn small{opacity:0.85; font-weight:600}
-    .section{margin-top:18px; padding:22px}
-    h2{margin:0 0 10px; font-size:19px}
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
+    .container{
+      max-width: 1320px; /* reduces empty side space */
+      margin: 0 auto;
+      padding: 18px 18px 22px;
+      height:100%;
+      display:flex;
+      flex-direction:column;
       gap:14px;
     }
-    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
-    .item{
-      padding:16px;
+
+    /* Top nav */
+    .topbar{
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow2);
+      padding: 12px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight: 800;
+      letter-spacing:0.2px;
+      white-space:nowrap;
+    }
+    .brandDot{
+      width:10px;height:10px;border-radius:999px;background:var(--blue);
+      box-shadow: 0 0 0 6px rgba(37,99,235,0.10);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .nav a, .nav button{
+      font: inherit;
+      background: transparent;
+      border: none;
+      cursor:pointer;
+      padding: 8px 10px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .nav a:hover, .nav button:hover{
+      background: #f1f5ff;
+      color: var(--text);
+    }
+
+    /* Dropdown */
+    .dropdown{ position:relative; }
+    .menu{
+      position:absolute;
+      right:0;
+      top:46px;
+      width: 240px;
+      background: var(--card);
       border:1px solid var(--border);
       border-radius: 14px;
-      background: rgba(0,0,0,0.18);
+      box-shadow: var(--shadow);
+      padding: 10px;
+      display:none;
     }
-    .itemTitle{font-weight:800; margin-bottom:6px}
-    .itemText{color:var(--muted); font-size:14.5px; margin:0}
-    .pillRow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .pill{
-      font-size:12.8px;
-      padding:6px 10px;
+    .menu.open{ display:block; }
+    .menuTitle{ font-weight:800; margin:6px 8px 10px; font-size:13px; color:var(--muted2); text-transform:uppercase; letter-spacing:0.06em;}
+    .menuItem{
+      width:100%;
+      text-align:left;
+      padding:10px 10px;
+      border-radius: 12px;
+      border:1px solid transparent;
+      background: transparent;
+      cursor:pointer;
+      font-weight:650;
+      color: var(--text);
+    }
+    .menuItem:hover{
+      background:#f8fafc;
+      border-color: var(--border);
+    }
+    .menuItem small{ color: var(--muted2); font-weight:600; }
+
+    /* Layout */
+    .main{
+      flex:1;
+      display:grid;
+      grid-template-columns: 360px 1fr; /* left small, right big */
+      gap:14px;
+      min-height:0; /* allows inner scrolling */
+    }
+    @media (max-width: 980px){
+      body{ overflow:auto; } /* on mobile, allow normal scroll */
+      .container{ height:auto; }
+      .main{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+    }
+
+    /* Left panel */
+    .left{
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:0;
+    }
+    .profileRow{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .avatar{
+      width:68px;height:68px;border-radius:16px;
+      border:1px solid var(--border);
+      overflow:hidden;
+      background:#f1f5f9;
+      flex:0 0 auto;
+    }
+    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .name{ font-weight:900; font-size:20px; margin:0; }
+    .role{ color: var(--muted); font-weight:650; margin-top:2px; }
+    .metaLine{ color: var(--muted2); font-size:14px; margin-top:6px; }
+
+    .btnRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-weight:750;
+      color: var(--text);
+      cursor:pointer;
+    }
+    .btn.primary{
+      background: var(--blue);
+      border-color: var(--blue);
+      color:#fff;
+    }
+    .btn:hover{ box-shadow: 0 8px 18px rgba(2,6,23,0.07); transform: translateY(-1px); }
+
+    .sectionTitle{
+      font-size:13px;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      color: var(--muted2);
+      margin: 8px 0 8px;
+      font-weight: 900;
+    }
+    .block{
+      border:1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px;
+      background: #fff;
+    }
+    .eduItem{ display:flex; justify-content:space-between; gap:10px; }
+    .eduItem b{ font-weight:850; }
+    .eduSub{ color: var(--muted); font-weight:650; margin-top:4px; }
+    .eduSmall{ color: var(--muted2); font-size:13.8px; margin-top:4px; }
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .chip{
+      background: var(--chip);
+      color: var(--chipText);
+      border:1px solid #dfe6ff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 750;
+      white-space:nowrap;
+    }
+    .skillLine{ color: var(--muted); font-size:14.6px; margin-top:8px; }
+    .skillLine b{ color: var(--text); }
+
+    /* Right panel */
+    .right{
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:0;
+    }
+    .rightHeader{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .title{
+      margin:0;
+      font-size: 24px;
+      font-weight: 950;
+      letter-spacing:-0.02em;
+    }
+    .subtitle{
+      margin:6px 0 0;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .activeFilter{
+      color: var(--muted2);
+      font-weight: 700;
+      font-size: 14px;
+      background:#f8fafc;
+      border:1px solid var(--border);
+      padding: 8px 10px;
+      border-radius: 14px;
+    }
+
+    .projectsArea{
+      flex:1;
+      min-height:0;
+      overflow:auto; /* scroll ONLY inside the projects area */
+      padding-right:6px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 1200px){ .grid{ grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 980px){ .projectsArea{ overflow:visible; } .grid{ grid-template-columns: 1fr; } }
+
+    .proj{
+      border:1px solid var(--border);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: 0 6px 14px rgba(2,6,23,0.05);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height: 240px;
+    }
+    .projImg{
+      height: 120px;
+      background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(99,102,241,0.06));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--muted2);
+      font-weight: 800;
+    }
+    .projBody{ padding: 12px; display:flex; flex-direction:column; gap:10px; }
+    .projTitle{ font-weight: 900; font-size: 16.5px; margin:0; }
+    .projDesc{ margin:0; color: var(--muted); font-size: 14.6px; }
+    .projTags{ display:flex; gap:8px; flex-wrap:wrap; }
+    .tag{
+      background:#f1f5ff;
+      border:1px solid #dbe6ff;
+      color:#1e40af;
+      padding: 5px 9px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,0.12);
-      color:var(--muted);
-      background: rgba(255,255,255,0.04);
+      font-size: 12.8px;
+      font-weight: 750;
     }
-    .footer{
-      margin-top:26px; color: rgba(233,238,255,0.65);
-      font-size:13px; text-align:center;
+    .projLinks{ display:flex; gap:12px; flex-wrap:wrap; margin-top:auto; }
+    .link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 14px;
     }
-    .muted{color:var(--muted)}
-    .twoCol{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
-    @media (max-width: 900px){ .twoCol{grid-template-columns:1fr} }
-    .hr{height:1px; background: rgba(255,255,255,0.10); margin:16px 0 0;}
+    .link:hover{ text-decoration:underline; }
 
-    /* Education formatting */
-    .eduRow{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
-    .eduSchool{font-weight:800}
-    .eduRight{color:var(--muted); font-size:13.8px; font-weight:700}
-    .eduMeta{color:var(--muted); font-size:14.5px; margin-top:4px}
-    .eduMeta b{color:var(--text)}
-    .smallNote{font-size:13.5px; color: rgba(233,238,255,0.65)}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
-
-    /* Contact form */
-    .formGrid{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-    @media (max-width: 900px){ .formGrid{grid-template-columns:1fr} }
+    /* Contact modal */
+    .modalBack{
+      position:fixed; inset:0;
+      background: rgba(2,6,23,0.40);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      z-index: 50;
+    }
+    .modalBack.open{ display:flex; }
+    .modal{
+      width: min(720px, 100%);
+      background:#fff;
+      border-radius: 18px;
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+    .modalTop{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding: 6px 6px 10px; }
+    .modalTop h3{ margin:0; font-size:18px; font-weight:950; }
+    .closeBtn{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius: 12px;
+      padding: 8px 10px;
+      cursor:pointer;
+      font-weight: 850;
+      color: var(--muted);
+    }
+    .formGrid{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; padding: 6px; }
+    @media (max-width: 700px){ .formGrid{ grid-template-columns:1fr; } }
     input, textarea{
       width:100%;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.05);
-      color: var(--text);
-      padding:12px 12px;
-      font-size:15px;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background:#fff;
+      padding: 11px 12px;
+      font-size: 15px;
       outline:none;
+      color: var(--text);
     }
-    textarea{min-height:120px; resize:vertical}
-    input::placeholder, textarea::placeholder{color: rgba(169,180,208,0.75)}
-    .formActions{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
+    textarea{ min-height: 130px; resize: vertical; grid-column: 1 / -1; }
+    .modalActions{ display:flex; gap:10px; flex-wrap:wrap; padding: 6px; }
+    .hint{ color: var(--muted2); font-size: 13.5px; padding: 0 6px 8px; }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
+  <div class="container">
 
+    <!-- TOP NAV -->
     <div class="topbar">
-      <div class="brand">Esha Teware</div>
+      <div class="brand">
+        <span class="brandDot"></span>
+        Esha Teware
+      </div>
+
       <div class="nav">
-        <a class="chip" href="#about">About</a>
-        <a class="chip" href="#skills">Skills</a>
-        <a class="chip" href="#projects">Projects</a>
-        <a class="chip" href="#contact">Contact</a>
+        <a href="#" onclick="setFilter('All'); return false;">Home</a>
+
+        <a href="#" onclick="scrollProjectsTop(); return false;">Projects</a>
+
+        <div class="dropdown">
+          <button id="projectsBtn" onclick="toggleMenu()">Project Filters ▾</button>
+          <div id="menu" class="menu">
+            <div class="menuTitle">Filter projects</div>
+            <button class="menuItem" onclick="setFilter('All')">All <small>(show everything)</small></button>
+            <button class="menuItem" onclick="setFilter('Python')">Python</button>
+            <button class="menuItem" onclick="setFilter('R')">R</button>
+            <button class="menuItem" onclick="setFilter('SQL')">SQL</button>
+            <button class="menuItem" onclick="setFilter('Power BI')">Power BI</button>
+            <button class="menuItem" onclick="setFilter('NLP')">NLP</button>
+            <button class="menuItem" onclick="setFilter('ML')">Machine Learning</button>
+          </div>
+        </div>
+
+        <button onclick="openContact()">Contact</button>
       </div>
     </div>
 
-    <div class="hero">
-      <!-- LEFT MAIN -->
-      <div class="card heroMain">
-        <div class="kicker"><span class="dot"></span> Data Science Portfolio • ML • NLP • Analytics</div>
-        <h1>Turning data into decisions.</h1>
+    <!-- MAIN LAYOUT -->
+    <div class="main">
 
-        <p class="subtitle">
-          M.S. Data Science student at <b>American University</b> (May 2026), with a B.S. in Data Science from <b>Penn State</b>.
-          I build end-to-end solutions—clean data pipelines, strong modeling, and clear stakeholder-ready insights.
-        </p>
-
-        <div class="twoCol">
-          <div class="item">
-            <div class="itemTitle">Location</div>
-            <p class="itemText">Washington, D.C.</p>
+      <!-- LEFT PROFILE -->
+      <div class="card left">
+        <div class="profileRow">
+          <div class="avatar">
+            <img src="assets/profile.jpg" alt="Esha Teware profile photo">
           </div>
-          <div class="item">
-            <div class="itemTitle">Focus Areas</div>
-            <p class="itemText">Financial analytics, operational efficiency, policy & social impact</p>
+          <div>
+            <div class="name">Esha Teware</div>
+            <div class="role">M.S. Data Science • American University</div>
+            <div class="metaLine">Washington, D.C. • Graduation: May 2026</div>
           </div>
         </div>
 
-        <div class="ctaRow">
-          <a class="btn primary" href="https://www.linkedin.com/in/e-teware/" target="_blank" rel="noreferrer">
-            LinkedIn <small>↗</small>
-          </a>
-          <a class="btn" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">
-            GitHub <small>↗</small>
-          </a>
-          <a class="btn" href="assets/Esha_Teware_Resume.pdf" target="_blank" rel="noreferrer">
-            Resume <small>PDF</small>
-          </a>
-          <a class="btn" href="#projects">View Projects</a>
+        <div class="btnRow">
+          <a class="btn primary" href="https://www.linkedin.com/in/e-teware/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="assets/Esha_Teware_Resume.pdf" target="_blank" rel="noreferrer">Resume (PDF)</a>
+          <button class="btn" onclick="openContact()">Contact</button>
         </div>
 
-        <div class="hr"></div>
+        <div class="block">
+          <div class="sectionTitle">About</div>
+          <div style="color:var(--muted); font-size:14.8px;">
+            M.S. Data Science student at American University (May 2026) with a B.S. in Data Science from Penn State.
+            Prior experience as a Data Scientist in FP&amp;A supporting forecasting and decision-making.
+            Interested in applied ML/NLP, analytics, and dashboards for real-world impact.
+          </div>
+        </div>
 
-        <div id="about" class="section" style="padding:18px 0 0;">
-          <h2>About me</h2>
-          <p class="muted" style="margin:0">
-            Masters of Science student at American University in Washington, D.C., pursuing an M.S. in Data Science with an expected graduation date of May 2026.
-            My academic background combines statistical rigor with applied analytics, and my completed coursework includes Statistical Methods, Regression,
-            Statistical Programming in R, and Business Insights/Analytics.
-            <br><br>
-            Prior to graduate school, I earned a B.S. in Data Science from Penn State University. I also worked as a Data Scientist at Koch Industries
-            in the FP&amp;A division, where I supported financial forecasting and built models to inform strategic decisions.
-            Most recently, I’ve been focusing on projects involving crime trend analysis, environmental behavior modeling, and interactive dashboards using R, Python, SQL, and Power BI.
-            <br><br>
-            I’m passionate about leveraging data to solve complex business and social problems—particularly in areas like financial analytics, operational efficiency, and policy impact.
-          </p>
+        <div class="block">
+          <div class="sectionTitle">Education</div>
+
+          <div class="eduItem">
+            <div><b>American University</b></div>
+            <div class="eduSmall">Jan 2025 – May 2026</div>
+          </div>
+          <div class="eduSub">MS, Data Science</div>
+          <div class="eduSmall"><b>GPA:</b> 3.92/4.0</div>
+
+          <div style="height:10px;"></div>
+
+          <div class="eduItem">
+            <div><b>Pennsylvania State University</b></div>
+            <div class="eduSmall">Aug 2018 – May 2023</div>
+          </div>
+          <div class="eduSub">BS, Data Science</div>
+          <div class="eduSmall"><b>GPA:</b> 3.5/4.0</div>
+        </div>
+
+        <div class="block">
+          <div class="sectionTitle">Skills</div>
+
+          <div class="skillLine"><b>Languages:</b> Python, R, SQL</div>
+          <div class="skillLine">
+            <b>Libraries &amp; Frameworks:</b>
+            Pandas, NumPy, Scikit-learn, Matplotlib, StatsModels, PyTorch, Tidyverse, ggplot, Shiny
+          </div>
+          <div class="skillLine"><b>Platforms &amp; Software:</b> Tableau, Power BI, Snowflake, Excel</div>
+
+          <div class="chips">
+            <span class="chip">Machine Learning</span>
+            <span class="chip">NLP / Embeddings</span>
+            <span class="chip">Dashboards</span>
+            <span class="chip">Forecasting</span>
+            <span class="chip">Reproducible Research</span>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="sectionTitle">Contact</div>
+          <div class="skillLine">
+            Email: <b>eshateware44 [at] gmail [dot] com</b>
+          </div>
+          <div class="skillLine" style="margin-top:6px;">
+            <a class="link" href="#" onclick="openContact(); return false;">Send a message ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PROJECTS -->
+      <div class="card right">
+        <div class="rightHeader">
+          <div>
+            <h2 class="title">Projects</h2>
+            <p class="subtitle">Filter by stack (Python/R/SQL/Power BI/NLP). Click “Code” to open the repo.</p>
+          </div>
+          <div id="activeFilter" class="activeFilter">Filter: All</div>
+        </div>
+
+        <div id="projectsArea" class="projectsArea">
+          <div id="projectsGrid" class="grid">
+
+            <!-- ========= PROJECT CARD TEMPLATE =========
+              Add many projects by copy/pasting one of these blocks.
+              data-tags controls filtering. Use tags like:
+              Python, R, SQL, Power BI, NLP, ML, Dashboard, Forecasting, etc.
+            -->
+
+            <div class="proj" data-tags="Python,SQL,Dashboard">
+              <div class="projImg">Crime Trend Analysis</div>
+              <div class="projBody">
+                <p class="projTitle">Crime Trend Analysis</p>
+                <p class="projDesc">Time trends + hotspot insights with clear visuals and storytelling.</p>
+                <div class="projTags">
+                  <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Dashboard</span>
+                </div>
+                <div class="projLinks">
+                  <a class="link" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">Code ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="proj" data-tags="R,ML,Reproducibility">
+              <div class="projImg">Environmental Modeling</div>
+              <div class="projBody">
+                <p class="projTitle">Environmental Behavior Modeling</p>
+                <p class="projDesc">Reproduced a published study, checked assumptions, and proposed extensions.</p>
+                <div class="projTags">
+                  <span class="tag">R</span><span class="tag">ML</span><span class="tag">Reproducibility</span>
+                </div>
+                <div class="projLinks">
+                  <a class="link" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">Code ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="proj" data-tags="Power BI,SQL,Dashboard">
+              <div class="projImg">Interactive Dashboards</div>
+              <div class="projBody">
+                <p class="projTitle">Interactive KPI Dashboards</p>
+                <p class="projDesc">Stakeholder-ready KPIs and reporting in Power BI backed by SQL queries.</p>
+                <div class="projTags">
+                  <span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Dashboard</span>
+                </div>
+                <div class="projLinks">
+                  <a class="link" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">Code ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="proj" data-tags="Python,NLP,ML">
+              <div class="projImg">NLP / Embeddings</div>
+              <div class="projBody">
+                <p class="projTitle">NLP Project (Embeddings)</p>
+                <p class="projDesc">Preprocessing + embeddings + evaluation for classification/retrieval workflows.</p>
+                <div class="projTags">
+                  <span class="tag">Python</span><span class="tag">NLP</span><span class="tag">ML</span>
+                </div>
+                <div class="projLinks">
+                  <a class="link" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">Code ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Add more projects here -->
+
+          </div>
         </div>
       </div>
 
-      <!-- RIGHT PROFILE -->
-      <div class="card">
-        <div class="section">
-          <div style="display:flex; align-items:center; gap:14px;">
-            <div style="width:120px;height:120px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.06);">
-              <img src="assets/profile.jpg" alt="Esha profile photo" style="width:100%;height:100%;object-fit:cover;display:block" />
-            </div>
-            <div>
-              <div style="font-weight:900; font-size:19px; margin-bottom:6px;">Esha Teware</div>
-              <div class="meta" style="color:var(--muted); font-size:14.5px;">
-                <b style="color:var(--text);">M.S. Data Science</b> • American University
-              </div>
-              <div class="meta" style="color:var(--muted); font-size:14.5px;">
-                B.S. Data Science • Penn State University
-              </div>
-            </div>
-          </div>
-
-          <div class="item" style="margin-top:14px;">
-            <div class="itemTitle">Education</div>
-
-            <div style="margin-top:10px;">
-              <div class="eduRow">
-                <div class="eduSchool">American University</div>
-                <div class="eduRight">January 2025 – May 2026</div>
-              </div>
-              <div class="eduMeta">MS, Data Science • <b>GPA:</b> 3.92/4.0</div>
-            </div>
-
-            <div style="margin-top:12px;">
-              <div class="eduRow">
-                <div class="eduSchool">Pennsylvania State University</div>
-                <div class="eduRight">August 2018 – May 2023</div>
-              </div>
-              <div class="eduMeta">BS, Data Science • <b>GPA:</b> 3.5/4.0</div>
-            </div>
-          </div>
-
-          <div class="item" id="skills" style="margin-top:14px;">
-            <div class="itemTitle">Skills</div>
-
-            <div style="margin-top:10px;">
-              <div class="smallNote"><b style="color:var(--text);">Languages:</b> Python, R, SQL</div>
-              <div class="smallNote" style="margin-top:8px;">
-                <b style="color:var(--text);">Libraries &amp; Frameworks:</b>
-                Pandas, NumPy, Scikit-learn, Matplotlib, StatsModels, PyTorch, Tidyverse, ggplot, Shiny
-              </div>
-              <div class="smallNote" style="margin-top:8px;">
-                <b style="color:var(--text);">Platforms &amp; Software:</b>
-                Tableau, Power BI, Snowflake, Excel
-              </div>
-            </div>
-
-            <div class="pillRow" style="margin-top:12px;">
-              <span class="pill">Machine Learning</span>
-              <span class="pill">NLP / Embeddings</span>
-              <span class="pill">Model Evaluation</span>
-              <span class="pill">Dashboards</span>
-              <span class="pill">Forecasting</span>
-              <span class="pill">Git</span>
-            </div>
-
-            <div class="smallNote" style="margin-top:10px;">
-              Add more anytime (e.g., Docker, AWS, Spark, TensorFlow, etc.).
-            </div>
-          </div>
-
-          <div class="item" style="margin-top:14px;">
-            <div class="itemTitle">Quick Links</div>
-            <div class="pillRow" style="margin-top:10px;">
-              <a class="pill" href="https://www.linkedin.com/in/e-teware/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-              <a class="pill" href="https://github.com/Esha7498" target="_blank" rel="noreferrer">GitHub ↗</a>
-              <a class="pill" href="assets/Esha_Teware_Resume.pdf" target="_blank" rel="noreferrer">Resume PDF ↗</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
     </div>
+  </div>
 
-    <!-- PROJECTS -->
-    <div class="card section" id="projects">
-      <h2>Projects</h2>
-      <p class="muted" style="margin-top:0">
-        Below are selected projects. I’m continuously adding new work—ML, NLP, analytics, and dashboards.
-      </p>
-
-      <div class="grid" style="margin-top:12px;">
-        <!-- Copy/paste this “project card” to add many projects -->
-        <div class="item">
-          <div class="itemTitle">Crime Trend Analysis</div>
-          <p class="itemText">Trend + hotspot analysis with clear visuals and insight-driven recommendations.</p>
-          <div class="pillRow">
-            <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">Visualization</span>
-          </div>
-          <p class="itemText" style="margin-top:10px">
-            Repo: <span class="muted">Add link here</span>
-          </p>
-        </div>
-
-        <div class="item">
-          <div class="itemTitle">Environmental Behavior Modeling (Reproducibility)</div>
-          <p class="itemText">Reproduced a published study, checked assumptions, and proposed extensions.</p>
-          <div class="pillRow">
-            <span class="pill">R</span><span class="pill">Regression</span><span class="pill">Reproducibility</span>
-          </div>
-          <p class="itemText" style="margin-top:10px">
-            Repo: <span class="muted">Add link here</span>
-          </p>
-        </div>
-
-        <div class="item">
-          <div class="itemTitle">Interactive Dashboards</div>
-          <p class="itemText">KPI design + stakeholder-ready reporting using SQL and BI tools.</p>
-          <div class="pillRow">
-            <span class="pill">Power BI</span><span class="pill">SQL</span><span class="pill">Storytelling</span>
-          </div>
-          <p class="itemText" style="margin-top:10px">
-            Repo: <span class="muted">Add link here</span>
-          </p>
-        </div>
-
-        <div class="item">
-          <div class="itemTitle">NLP Project (Embeddings / Text Modeling)</div>
-          <p class="itemText">Text preprocessing + embeddings + evaluation for classification/retrieval workflows.</p>
-          <div class="pillRow">
-            <span class="pill">NLP</span><span class="pill">Embeddings</span><span class="pill">Evaluation</span>
-          </div>
-          <p class="itemText" style="margin-top:10px">
-            Repo: <span class="muted">Add link here</span>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- CONTACT -->
-    <div class="card section" id="contact">
-      <h2>Contact</h2>
-      <p class="muted" style="margin-top:0">
-        If you'd like to reach out, send me a message here — it will open your email client with the message pre-filled.
-      </p>
-
-      <div class="formGrid" style="margin-top:12px;">
-        <input id="name" placeholder="Your name" />
-        <input id="subject" placeholder="Subject (e.g., Portfolio / Opportunity / Collaboration)" />
+  <!-- CONTACT MODAL -->
+  <div id="modalBack" class="modalBack" onclick="closeContact(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modalTop">
+        <h3>Contact Esha</h3>
+        <button class="closeBtn" onclick="closeContact()">Close</button>
       </div>
 
-      <div style="margin-top:12px;">
+      <div class="hint">This will open your email client with the message pre-filled.</div>
+
+      <div class="formGrid">
+        <input id="senderName" placeholder="Your name" />
+        <input id="subject" placeholder="Subject (e.g., Opportunity / Collaboration)" />
         <textarea id="message" placeholder="Write your message..."></textarea>
       </div>
 
-      <div class="formActions">
+      <div class="modalActions">
         <button class="btn primary" onclick="sendEmail()">Send Email</button>
-        <a class="btn" href="mailto:eshateware44@gmail.com">Or email me directly</a>
+        <a class="btn" href="mailto:eshateware44@gmail.com">Email directly</a>
       </div>
-
-      <div class="smallNote" style="margin-top:10px;">
-        Email: <span class="mono">eshateware44 [at] gmail [dot] com</span>
-      </div>
-    </div>
-
-    <div class="footer">
-      © <span id="y"></span> Esha Teware • Built with GitHub Pages
     </div>
   </div>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    // Dropdown
+    const menu = document.getElementById("menu");
+    function toggleMenu(){
+      menu.classList.toggle("open");
+    }
+    document.addEventListener("click", (e) => {
+      const btn = document.getElementById("projectsBtn");
+      if (!btn.contains(e.target) && !menu.contains(e.target)) menu.classList.remove("open");
+    });
 
+    // Projects filtering
+    let currentFilter = "All";
+
+    function setFilter(tag){
+      currentFilter = tag;
+      document.getElementById("activeFilter").textContent = `Filter: ${tag}`;
+      menu.classList.remove("open");
+
+      const cards = document.querySelectorAll(".proj");
+      cards.forEach(card => {
+        const tags = (card.getAttribute("data-tags") || "").split(",").map(t => t.trim());
+        const show = (tag === "All") || tags.includes(tag);
+        card.style.display = show ? "flex" : "none";
+      });
+
+      scrollProjectsTop();
+    }
+
+    function scrollProjectsTop(){
+      const area = document.getElementById("projectsArea");
+      if (area) area.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Contact modal
+    function openContact(){
+      document.getElementById("modalBack").classList.add("open");
+    }
+    function closeContact(evt){
+      document.getElementById("modalBack").classList.remove("open");
+    }
     function sendEmail(){
-      const name = document.getElementById("name").value.trim();
-      const subject = document.getElementById("subject").value.trim();
-      const message = document.getElementById("message").value.trim();
+      const name = document.getElementById("senderName").value.trim();
+      const subject = document.getElementById("subject").value.trim() || "Portfolio message";
+      const msg = document.getElementById("message").value.trim();
 
       const to = "eshateware44@gmail.com";
-      const finalSubject = subject || "Portfolio message";
       const body =
         (name ? `Name: ${name}\n\n` : "") +
-        (message ? message : "Hi Esha,\n\n");
+        (msg ? msg : "Hi Esha,\n\n");
 
-      const mailto = `mailto:${to}?subject=${encodeURIComponent(finalSubject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailto;
+      window.location.href =
+        `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
+
+    // default filter
+    setFilter("All");
   </script>
 </body>
 </html>
