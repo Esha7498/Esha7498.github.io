@@ -19,8 +19,9 @@ export function MainContent() {
             </div>
             
             <div className="space-y-2">
-              <h1 className="text-4xl">Esha Teware</h1>
+              <h1 className="text-4xl font-semibold tracking-tight">Esha Teware</h1>
               <h2 className="text-2xl text-gray-600">Data Scientist</h2>
+              
             </div>
             
             <p className="text-gray-600">
@@ -32,7 +33,7 @@ export function MainContent() {
             {/* Social Links */}
             <div className="flex flex-col gap-3 pt-4 border-t border-gray-200">
               <a 
-                href="https://github.com" 
+                href="https://github.com/Esha7498" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition"
@@ -41,7 +42,7 @@ export function MainContent() {
                 <span>GitHub</span>
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/e-teware/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition"
@@ -81,9 +82,9 @@ export function MainContent() {
                   <GraduationCap className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="text-lg">M.S. in Data Science</h4>
-                    <p className="text-gray-600">Stanford University</p>
-                    <p className="text-sm text-gray-500">2018 - 2020</p>
-                    <p className="text-sm text-gray-600 mt-1">GPA: 3.9/4.0</p>
+                    <p className="text-gray-600">American University</p>
+                    <p className="text-sm text-gray-500">Jan 2025 – May 2026</p>
+                    <p className="text-sm text-gray-600 mt-1">GPA: 3.92/4.0</p>
                     <p className="text-sm text-gray-600 mt-2">Specialized in machine learning and statistical modeling.</p>
                     {/* Add your subjects and awards as bullet points here */}
                   </div>
@@ -94,10 +95,10 @@ export function MainContent() {
                 <div className="flex items-start gap-3">
                   <GraduationCap className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="text-lg">B.S. in Computer Science</h4>
-                    <p className="text-gray-600">MIT</p>
-                    <p className="text-sm text-gray-500">2014 - 2018</p>
-                    <p className="text-sm text-gray-600 mt-1">GPA: 3.8/4.0</p>
+                    <h4 className="text-lg">B.S. in Data Science</h4>
+                    <p className="text-gray-600">The Pennsylvania State University</p>
+                    <p className="text-sm text-gray-500">Aug 2018 – May 2023</p>
+                    <p className="text-sm text-gray-600 mt-1">GPA: 3.52/4.0</p>
                     <p className="text-sm text-gray-600 mt-2">Focus on algorithms and artificial intelligence.</p>
                     {/* Add your subjects and awards as bullet points here */}
                   </div>
