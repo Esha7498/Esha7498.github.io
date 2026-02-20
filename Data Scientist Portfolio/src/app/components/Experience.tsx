@@ -33,7 +33,7 @@ export function Experience() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-8 text-center">
           <h2 className="text-4xl mb-4">PROFESSIONAL EXPERIENCE</h2>
-          <p className="text-gray-600 max-w-2xl">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Experience delivering analytics, forecasting, and data products across finance and operations.
           </p>
         </div>
