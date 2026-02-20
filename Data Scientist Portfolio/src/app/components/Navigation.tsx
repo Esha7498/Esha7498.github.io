@@ -8,8 +8,8 @@ export function Navigation() {
     { label: 'Home', href: '#home' },
     { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Contact', href: '#contact' }
+    { label: 'Experience', href: '#experience' }
+   
   ];
 
   return (
