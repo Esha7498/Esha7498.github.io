@@ -31,7 +31,7 @@ export function MainContent() {
             </p>
             
             {/* Social Links */}
-            <div className="flex flex-col gap-3 pt-4 border-t border-gray-200">
+            <a className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition px-2 py-1 rounded-lg hover:bg-gray-50" ...>
               <a 
                 href="https://github.com/Esha7498" 
                 target="_blank" 
