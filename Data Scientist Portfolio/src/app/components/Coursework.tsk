@@ -1,0 +1,55 @@
+export function Coursework() {
+  const coursework = {
+    "American University": [
+      "Machine Learning",
+      "Applied NLP",
+      "Regression",
+      "Bayesian Statistics",
+      "Statistical Programming (R & Python)",
+      "Business Analytics",
+      "Database Systems"
+    ],
+    "Penn State University": [
+      "Big Data Analytics",
+      "Cloud Computing",
+      "Database Systems",
+      "Intro to Artificial Intelligence",
+      "Data Structures & Algorithms"
+    ]
+  };
+
+  return (
+    <section id="coursework" className="py-20 px-6 bg-gray-50">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl mb-4">Relevant Coursework</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Selected coursework across machine learning, statistics, NLP, and data systems.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {Object.entries(coursework).map(([school, courses]) => (
+            <div
+              key={school}
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition"
+            >
+              <h3 className="text-xl mb-4">{school}</h3>
+
+              <div className="flex flex-wrap gap-2">
+                {courses.map((course) => (
+                  <span
+                    key={course}
+                    className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                  >
+                    {course}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
