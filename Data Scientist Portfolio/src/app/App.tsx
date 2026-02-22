@@ -2,7 +2,7 @@ import { Navigation } from './components/Navigation';
 import { MainContent } from './components/MainContent';
 import { Experience } from './components/Experience';
 import { Skills } from './components/Skills';
-
+import { Coursework } from './Coursework';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -13,6 +13,7 @@ export default function App() {
         <MainContent />
         <Experience />
         <Skills />
+        <Coursework />
         
       </div>
       <Footer />
