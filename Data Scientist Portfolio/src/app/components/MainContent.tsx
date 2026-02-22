@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, MapPin, Download, GraduationCap } from 'lucide-react';
+import { Github, Linkedin, MapPin, Download, GraduationCap } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Projects } from './Projects';
 
@@ -11,55 +11,59 @@ export function MainContent() {
           {/* Profile Section */}
           <div className="space-y-6">
             <div className="w-48 h-48 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100">
-              <ImageWithFallback 
+              <ImageWithFallback
                 src="/profile.JPG"
-                alt="Profile"
-                className="w-full h-full object-cover"
+                alt="Esha Teware"
+                className="w-full h-full object-cover object-center"
               />
             </div>
-            
+
             <div className="space-y-2">
               <h1 className="text-4xl font-semibold tracking-tight">Esha Teware</h1>
               <h2 className="text-2xl text-gray-600">Data Scientist</h2>
-              
             </div>
-            
+
             <p className="text-gray-600">
-              Transforming complex data into actionable insights through machine learning, 
-              statistical analysis, and compelling visualizations. Passionate about solving 
+              Transforming complex data into actionable insights through machine learning,
+              statistical analysis, and compelling visualizations. Passionate about solving
               real-world problems with data-driven solutions.
             </p>
-            
-            {/* Social Links */}
-            <a className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition px-2 py-1 rounded-lg hover:bg-gray-50" ...>
-              <a 
-                href="https://github.com/Esha7498" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition"
+
+            {/* Social Links (Horizontal Buttons) */}
+            <div className="flex flex-row flex-wrap items-center gap-4 pt-4 border-t border-gray-200">
+              <a
+                href="https://github.com/Esha7498"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-700
+                           hover:text-blue-600 hover:border-blue-200 hover:bg-gray-50 transition"
               >
                 <Github className="w-5 h-5" />
                 <span>GitHub</span>
               </a>
-              <a 
-                href="https://www.linkedin.com/in/e-teware/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition"
+
+              <a
+                href="https://www.linkedin.com/in/e-teware/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-700
+                           hover:text-blue-600 hover:border-blue-200 hover:bg-gray-50 transition"
               >
                 <Linkedin className="w-5 h-5" />
                 <span>LinkedIn</span>
               </a>
-              <a 
-                href="/resume.pdf" 
+
+              <a
+                href="/resume.pdf"
                 download
-                className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-700
+                           hover:text-blue-600 hover:border-blue-200 hover:bg-gray-50 transition"
               >
                 <Download className="w-5 h-5" />
                 <span>Resume</span>
               </a>
             </div>
-            
+
             {/* Contact Info */}
             <div className="pt-4 border-t border-gray-200 space-y-3">
               <h3 className="text-xl">CONTACT</h3>
@@ -72,7 +76,7 @@ export function MainContent() {
               </div>
             </div>
           </div>
-          
+
           {/* Education */}
           <div className="space-y-4 pt-4 border-t border-gray-200">
             <h3 className="text-2xl">EDUCATION</h3>
@@ -85,12 +89,13 @@ export function MainContent() {
                     <p className="text-gray-600">American University</p>
                     <p className="text-sm text-gray-500">Jan 2025 – May 2026</p>
                     <p className="text-sm text-gray-600 mt-1">GPA: 3.92/4.0</p>
-                    <p className="text-sm text-gray-600 mt-2">Specialized in machine learning and statistical modeling.</p>
-                    {/* Add your subjects and awards as bullet points here */}
+                    <p className="text-sm text-gray-600 mt-2">
+                      Specialized in machine learning and statistical modeling.
+                    </p>
                   </div>
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <div className="flex items-start gap-3">
                   <GraduationCap className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
@@ -99,15 +104,16 @@ export function MainContent() {
                     <p className="text-gray-600">The Pennsylvania State University</p>
                     <p className="text-sm text-gray-500">Aug 2018 – May 2023</p>
                     <p className="text-sm text-gray-600 mt-1">GPA: 3.52/4.0</p>
-                    <p className="text-sm text-gray-600 mt-2">Focus on algorithms and artificial intelligence.</p>
-                    {/* Add your subjects and awards as bullet points here */}
+                    <p className="text-sm text-gray-600 mt-2">
+                      Focus on algorithms and artificial intelligence.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+
         {/* Right Column */}
         <div className="space-y-12">
           {/* Projects Section */}
