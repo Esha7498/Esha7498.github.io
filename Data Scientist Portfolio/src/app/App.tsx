@@ -12,7 +12,7 @@ export default function App() {
         <MainContent />
         <Experience />
         <Skills />
-        <Coursework />
+        
         
       </div>
       <Footer />
