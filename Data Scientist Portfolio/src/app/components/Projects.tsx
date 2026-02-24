@@ -39,6 +39,30 @@ const projects = [
     github: 'https://github.com/Esha7498/Portuguese_Bank_Marketing_Analysis.git',
     demo: '',
     slides: '' // ✅ PPT/PDF link
+  },
+  {
+    id: 4,
+    title: 'Disaster-Related SBA Loan Approvals (Hierarchical Bayesian / JAGS)',
+    description:
+      'Applied a hierarchical Bayesian model (MCMC via JAGS) to analyze factors influencing disaster-related small business loan approval rates. Integrated economic, political, and geographic context, performed imputation, diagnostics, and reproducible reporting via Quarto.',
+    tags: ['R', 'Bayesian Modeling', 'JAGS', 'MCMC', 'Quarto'],
+    image:
+      'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1080&q=80',
+    github: 'https://github.com/Esha7498/STAT-618_Project.git', // paste this repo link
+    demo: '',
+    slides: ''
+  },
+    {
+    id: 5,
+    title: 'Environmental Attitudes Regression (Reproduction + Extension)',
+    description:
+      'Reproduced and extended a 2024 PLOS ONE study using the Theory of Planned Behavior (SN, PBC, SCE → EA). Verified reliability (Cronbach’s α ≈ 0.918), replicated multiple regression results, and added interaction + logistic regression extensions for high environmental attitudes (EA ≥ 4).',
+    tags: ['R', 'Regression', 'Reproducibility', 'PLOS ONE', 'Research'],
+    image:
+      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1080&q=80',
+    github: 'https://github.com/Esha7498/environmental-attitudes-regression.git', // your repo: environmental-attitudes-regression
+    demo: '',
+    slides: '' // you mentioned report/En_project.pdf
   }
 ];
 
