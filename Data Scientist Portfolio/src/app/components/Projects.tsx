@@ -1,47 +1,61 @@
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, FileText } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useMemo, useState } from 'react';
 
 const projects = [
   {
     id: 1,
-    title: 'Customer Churn Prediction Model',
+    title: 'SBA Loan Insights Dashboard (R Shiny)',
     description:
-      'Developed a machine learning model to predict customer churn with 92% accuracy using ensemble methods. Implemented feature engineering and hyperparameter tuning to optimize performance.',
-    tags: ['Python', 'Scikit-learn', 'XGBoost', 'Pandas'],
+      'Interactive R Shiny dashboard analyzing U.S. SBA 7(a) loans (FY2020–Present) across states, industries, and business types, with maps and trend insights.',
+    tags: ['R', 'Shiny', 'Data Visualization', 'EDA'],
     image:
-      'https://images.unsplash.com/photo-1770681381576-f1fdceb2ea01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwdmlzdWFsaXphdGlvbiUyMGNoYXJ0cyUyMGdyYXBoc3xlbnwxfHx8fDE3NzE1NDg3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    github: 'https://github.com',
-    demo: 'https://example.com'
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1080&q=80',
+    github: 'https://github.com/Esha7498/SBA-Loan-Insights-R_Shiny-Dashboard.git',
+    demo: 'https://fpqndl-esha-teware.shinyapps.io/SBA-Loan-Insights-R_Shiny-Dashboard/', // ✅ only this one has demo
+    slides: '' // optional
   },
   {
     id: 2,
-    title: 'Real-time Sentiment Analysis Dashboard',
+    title: 'Bank Marketing Success Prediction (Portuguese Bank)',
     description:
-      'Built an interactive dashboard for analyzing social media sentiment in real-time. Integrated NLP techniques and streaming data processing for live insights.',
-    tags: ['Python', 'TensorFlow', 'NLTK', 'Dash', 'AWS'],
+      'Predictive modeling project on Portuguese bank telemarketing data using regularized logistic regression and ML models to forecast subscription outcomes and compare performance.',
+    tags: ['R', 'Machine Learning', 'Logistic Regression', 'Model Evaluation'],
     image:
-      'https://images.unsplash.com/photo-1759752394755-1241472b589d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmFseXRpY3MlMjBkYXNoYm9hcmQlMjBzY3JlZW58ZW58MXx8fHwxNzcxNDU3Nzc0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    github: 'https://github.com',
-    demo: 'https://example.com'
+      'https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1080&q=80',
+    github: 'https://github.com/Esha7498/Portuguese_Bank_Marketing_Analysis.git',
+    demo: '',
+    slides: 'PASTE_SLIDES_LINK' // ✅ PPT/PDF link
   },
   {
     id: 3,
-    title: 'Computer Vision for Medical Imaging',
+    title: 'Drowsiness.TV (Driver Drowsiness Detection)',
     description:
-      'Created a deep learning model for detecting anomalies in medical X-ray images with 95% precision. Utilized transfer learning and data augmentation techniques.',
-    tags: ['PyTorch', 'Computer Vision', 'CNN', 'OpenCV'],
+      'Computer vision pipeline to detect eye-state/drowsiness using a CNN, integrated into an app workflow (team project). Focused on real-time inference and practical UX.',
+    tags: ['Python', 'Computer Vision', 'CNN', 'React'],
     image:
-      'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWNoaW5lJTIwbGVhcm5pbmclMjBhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDF8fHx8MTc3MTUyMDg5Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    github: 'https://github.com',
-    demo: 'https://example.com'
+      'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1080&q=80',
+    github: 'https://github.com/Esha7498/drowsiness-tv-extension.git',
+    demo: '',
+    slides: 'https://docs.google.com/presentation/d/1F_lzYe8wB-hm6lTJeehTPUWtCqTMoAa0/edit?slide=id.p1#slide=id.p1'
+  },
+  {
+    id: 4,
+    title: 'Multi-Modal ML for Molecular Property Prediction (Capstone)',
+    description:
+      'Capstone project combining multiple modalities (e.g., SMILES/text embeddings/graphs) to predict molecular properties on datasets like QM9 and related tasks.',
+    tags: ['Python', 'Deep Learning', 'NLP', 'Graph ML'],
+    image:
+      'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1080&q=80',
+    github: 'PASTE_GITHUB_REPO_LINK',
+    demo: '',
+    slides: 'PASTE_SLIDES_LINK'
   }
 ];
 
 export function Projects() {
   const [selectedFilter, setSelectedFilter] = useState('All');
 
-  // Unique tags (stable ordering)
   const filters = useMemo(() => {
     const allTags = Array.from(new Set(projects.flatMap((p) => p.tags)));
     return ['All', ...allTags.sort((a, b) => a.localeCompare(b))];
@@ -57,7 +71,6 @@ export function Projects() {
       <div className="flex items-end justify-between gap-4 flex-wrap">
         <h2 className="text-3xl">PROJECTS</h2>
 
-        {/* Dropdown filter */}
         <div className="min-w-[220px]">
           <label className="block text-xs text-gray-500 mb-1">Filter by</label>
           <select
@@ -75,7 +88,6 @@ export function Projects() {
         </div>
       </div>
 
-      {/* Scrollable projects container */}
       <div className="max-h-[800px] overflow-y-auto pr-2 space-y-6">
         {filteredProjects.map((project) => (
           <div
@@ -107,24 +119,40 @@ export function Projects() {
                 </div>
 
                 <div className="flex gap-4 pt-2">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition text-sm"
-                  >
-                    <Github className="w-4 h-4" />
-                    Code
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition text-sm"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Live Demo
-                  </a>
+                  {project.github?.trim() && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition text-sm"
+                    >
+                      <Github className="w-4 h-4" />
+                      Code
+                    </a>
+                  )}
+
+                  {/* If demo exists show Live Demo else if slides exists show Slides */}
+                  {project.demo?.trim() ? (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition text-sm"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Live Demo
+                    </a>
+                  ) : project.slides?.trim() ? (
+                    <a
+                      href={project.slides}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition text-sm"
+                    >
+                      <FileText className="w-4 h-4" />
+                      Slides
+                    </a>
+                  ) : null}
                 </div>
               </div>
             </div>
