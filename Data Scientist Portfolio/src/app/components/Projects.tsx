@@ -3,8 +3,21 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useMemo, useState } from 'react';
 
 const projects = [
-  {
+
+    {
     id: 1,
+    title: 'Drowsiness.TV (Driver Drowsiness Detection)',
+    description:
+      'Computer vision pipeline to detect eye-state/drowsiness using a CNN, integrated into an app workflow (team project). Focused on real-time inference and practical UX.',
+    tags: ['Python', 'Computer Vision', 'CNN', 'React'],
+    image:
+      'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1080&q=80',
+    github: 'https://github.com/Esha7498/drowsiness-tv-extension.git',
+    demo: '',
+    slides: ''
+  },
+  {
+    id: 2,
     title: 'SBA Loan Insights Dashboard (R Shiny)',
     description:
       'Interactive R Shiny dashboard analyzing U.S. SBA 7(a) loans (FY2020–Present) across states, industries, and business types, with maps and trend insights.',
@@ -16,7 +29,7 @@ const projects = [
     slides: '' // optional
   },
   {
-    id: 2,
+    id: 3,
     title: 'Bank Marketing Success Prediction (Portuguese Bank)',
     description:
       'Predictive modeling project on Portuguese bank telemarketing data using regularized logistic regression and ML models to forecast subscription outcomes and compare performance.',
@@ -25,31 +38,7 @@ const projects = [
       'https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1080&q=80',
     github: 'https://github.com/Esha7498/Portuguese_Bank_Marketing_Analysis.git',
     demo: '',
-    slides: 'PASTE_SLIDES_LINK' // ✅ PPT/PDF link
-  },
-  {
-    id: 3,
-    title: 'Drowsiness.TV (Driver Drowsiness Detection)',
-    description:
-      'Computer vision pipeline to detect eye-state/drowsiness using a CNN, integrated into an app workflow (team project). Focused on real-time inference and practical UX.',
-    tags: ['Python', 'Computer Vision', 'CNN', 'React'],
-    image:
-      'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1080&q=80',
-    github: 'https://github.com/Esha7498/drowsiness-tv-extension.git',
-    demo: '',
-    slides: 'https://docs.google.com/presentation/d/1F_lzYe8wB-hm6lTJeehTPUWtCqTMoAa0/edit?slide=id.p1#slide=id.p1'
-  },
-  {
-    id: 4,
-    title: 'Multi-Modal ML for Molecular Property Prediction (Capstone)',
-    description:
-      'Capstone project combining multiple modalities (e.g., SMILES/text embeddings/graphs) to predict molecular properties on datasets like QM9 and related tasks.',
-    tags: ['Python', 'Deep Learning', 'NLP', 'Graph ML'],
-    image:
-      'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1080&q=80',
-    github: 'PASTE_GITHUB_REPO_LINK',
-    demo: '',
-    slides: 'PASTE_SLIDES_LINK'
+    slides: '' // ✅ PPT/PDF link
   }
 ];
 
