@@ -35,7 +35,7 @@ const skillCategories = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-20 px-6 bg-gray-50">
+    <section id="skills" className="pt-40 pb-20 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <div className="mb-8 text-center">
           <h2 className="text-4xl mb-4">Skills & Expertise</h2>
