@@ -27,7 +27,7 @@ const projects = [
   github: 'https://github.com/Esha7498/dc-cherry-blossom-predictor.git',
   demo: '',
   slides: ''
-  }
+  },
   {
     id: 3,
     title: 'Bank Marketing Success Prediction (Portuguese Bank)',
