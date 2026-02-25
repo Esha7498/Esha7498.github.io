@@ -4,8 +4,7 @@ const trainings = [
   {
     title: 'Fundamentals of Accelerated Computing with CUDA Python',
     organization: 'NVIDIA Deep Learning Institute (DLI)',
-    location: 'Online',
-    period: '2026',
+
     bullets: [
       'Learned GPU acceleration fundamentals using CUDA Python (kernels, threads/blocks, and memory concepts).',
       'Practiced accelerating Python workloads by moving compute-intensive sections onto the GPU.',
@@ -16,8 +15,7 @@ const trainings = [
   {
     title: 'Accelerate Data Science Workflows with Zero Code Changes',
     organization: 'NVIDIA Deep Learning Institute (DLI)',
-    location: 'Online',
-    period: '2026',
+
     bullets: [
       'Explored approaches to speed up existing data science pipelines with minimal/no changes to core code.',
       'Learned how GPU-accelerated backends can accelerate dataframe and ML workloads while preserving familiar APIs.',
@@ -28,8 +26,7 @@ const trainings = [
   {
     title: 'Accelerating End-to-End Data Science Workflows',
     organization: 'NVIDIA Deep Learning Institute (DLI)',
-    location: 'Online',
-    period: '2026',
+
     bullets: [
       'Covered end-to-end workflow optimization from data prep → training → evaluation using accelerated tooling.',
       'Studied practical optimization levers (batching, data loading, compute vs. memory bottlenecks).',
@@ -40,8 +37,7 @@ const trainings = [
   {
     title: 'Generative & Agentic AI Explained',
     organization: 'NVIDIA Deep Learning Institute (DLI)',
-    location: 'Online',
-    period: '2026',
+
     bullets: [
       'Studied foundations of generative AI (LLMs, embeddings) and how agentic systems plan and use tools.',
       'Reviewed patterns like RAG, tool calling, and workflow orchestration, plus evaluation basics.',
@@ -52,8 +48,7 @@ const trainings = [
   {
     title: 'Build Deep Research Agent',
     organization: 'NVIDIA Deep Learning Institute (DLI)',
-    location: 'Online',
-    period: '2026',
+
     bullets: [
       'Learned agent workflows for breaking down complex questions into research sub-tasks.',
       'Explored search → synthesis → structured reporting patterns with iterative refinement.',
@@ -64,8 +59,7 @@ const trainings = [
   {
     title: 'Intro to Multi-Modal Data Curation',
     organization: 'NVIDIA Deep Learning Institute (DLI)',
-    location: 'Online',
-    period: '2026',
+
     bullets: [
       'Covered principles for curating multi-modal datasets (text, image, tabular, and other modalities).',
       'Learned strategies for labeling, quality checks, deduplication, balancing, and bias detection.',
