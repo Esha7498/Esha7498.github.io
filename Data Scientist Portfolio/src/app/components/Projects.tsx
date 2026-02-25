@@ -20,11 +20,11 @@ const projects = [
   id: 2,
   title: 'DC Cherry Blossom Peak Bloom Predictor (Time-Series ML)',
   description:
-    'Time-series machine learning pipeline to forecast Washington, DC Yoshino peak bloom timing (DOY) using phenology-inspired features: winter chill, growing degree days (base 40°F), and winter Niño3.4. Evaluated with walk-forward TimeSeriesSplit (MAE ≈ 4.46 ± 1.28 days). Early 2026 forecast (cutoff: 2026-02-24): Apr 03, 2026 (DOY 93).',
+    'Time-series ML pipeline to forecast Washington, DC Yoshino peak bloom (DOY) using winter chill, GDD (base 40°F), and winter Niño3.4. Walk-forward TimeSeriesSplit MAE ≈ 4.46 ± 1.28 days; 2026 early forecast (cutoff 2026-02-24): Apr 03, 2026 (DOY 93).',
   tags: ['Python', 'Time Series', 'XGBoost', 'scikit-learn', 'Open-Meteo API', 'SHAP'],
   image:
     'https://images.unsplash.com/photo-1520543957103-4e1e5f8f2b3a?auto=format&fit=crop&w=1080&q=80',
-  github: 'https://github.com/Esha7498/dc-cherry-blossom-predictor.git',
+  github: 'https://github.com/Esha7498/dc-cherry-blossom-predictor_2026.git',
   demo: '',
   slides: ''
   },
