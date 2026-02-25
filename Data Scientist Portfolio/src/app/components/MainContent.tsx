@@ -1,4 +1,4 @@
-import { Github, Linkedin, MapPin, Download, GraduationCap } from 'lucide-react';
+import { Github, Linkedin, MapPin, Download, GraduationCap, ExternalLink } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Projects } from './Projects';
 
@@ -53,14 +53,27 @@ export function MainContent() {
                 <span>LinkedIn</span>
               </a>
 
+              {/* View Resume */}
               <a
-                href="/resume.pdf"
+                href="/e_teware_R.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-700
+                           hover:text-blue-600 hover:border-blue-200 hover:bg-gray-50 transition"
+              >
+                <ExternalLink className="w-5 h-5" />
+                <span>View Resume</span>
+              </a>
+
+              {/* Download Resume */}
+              <a
+                href="/e_teware_R.pdf"
                 download
                 className="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-700
                            hover:text-blue-600 hover:border-blue-200 hover:bg-gray-50 transition"
               >
                 <Download className="w-5 h-5" />
-                <span>Resume</span>
+                <span>Download</span>
               </a>
             </div>
 
