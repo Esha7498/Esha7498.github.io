@@ -77,7 +77,7 @@ const trainings = [
 
 export function Trainings() {
   return (
-    <section id="trainings" className="pt-30 pb-20 px-6 bg-gray-50">
+    <section id="trainings" className="pt-15 pb-20 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <div className="mb-8 text-center">
           <h2 className="text-4xl mb-4">TRAININGS</h2>
