@@ -1,130 +1,135 @@
-import { ExternalLink } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 
-type Training = {
-  id: number;
-  title: string;
-  provider: string;
-  date: string;
-  bullets: string[];
-  credential?: string; // optional
-};
-
-const trainings: Training[] = [
+const trainings = [
   {
-    id: 1,
     title: 'Fundamentals of Accelerated Computing with CUDA Python',
-    provider: 'NVIDIA Deep Learning Institute (DLI)',
-    date: '2026',
+    organization: 'NVIDIA Deep Learning Institute (DLI)',
+    location: 'Online',
+    period: '2026',
     bullets: [
-      'Learned GPU acceleration fundamentals using CUDA Python, including kernels, threads/blocks, and memory concepts.',
+      'Learned GPU acceleration fundamentals using CUDA Python (kernels, threads/blocks, and memory concepts).',
       'Practiced accelerating Python workloads by moving compute-intensive sections onto the GPU.',
-      'Applied performance intuition around parallelism, memory access patterns, and profiling-driven optimization.'
+      'Built performance intuition around parallelism, memory access patterns, and profiling-driven optimization.'
     ],
-    credential: ''
+    tags: ['CUDA Python', 'GPU', 'Parallel Computing', 'Performance']
   },
   {
-    id: 2,
     title: 'Accelerate Data Science Workflows with Zero Code Changes',
-    provider: 'NVIDIA Deep Learning Institute (DLI)',
-    date: '2026',
+    organization: 'NVIDIA Deep Learning Institute (DLI)',
+    location: 'Online',
+    period: '2026',
     bullets: [
-      'Explored approaches to speed up existing data science pipelines with minimal/no changes to core Python code.',
-      'Learned how GPU-accelerated backends can improve dataframe and ML workloads while preserving familiar APIs.',
-      'Compared runtime and throughput before/after acceleration and identified best-fit workloads.'
+      'Explored approaches to speed up existing data science pipelines with minimal/no changes to core code.',
+      'Learned how GPU-accelerated backends can accelerate dataframe and ML workloads while preserving familiar APIs.',
+      'Compared runtime before/after acceleration and identified best-fit workflows for GPU speedups.'
     ],
-    credential: ''
+    tags: ['GPU Acceleration', 'Data Science', 'Performance', 'Workflows']
   },
   {
-    id: 3,
     title: 'Accelerating End-to-End Data Science Workflows',
-    provider: 'NVIDIA Deep Learning Institute (DLI)',
-    date: '2026',
+    organization: 'NVIDIA Deep Learning Institute (DLI)',
+    location: 'Online',
+    period: '2026',
     bullets: [
-      'Covered GPU-accelerated, end-to-end data science workflow design from data prep → training → evaluation.',
-      'Worked through practical optimization levers (batching, data loading, compute vs. memory bottlenecks).',
+      'Covered end-to-end workflow optimization from data prep → training → evaluation using accelerated tooling.',
+      'Studied practical optimization levers (batching, data loading, compute vs. memory bottlenecks).',
       'Emphasized reproducible pipelines and measurement-driven improvements.'
     ],
-    credential: ''
+    tags: ['End-to-End Pipelines', 'GPU', 'Optimization', 'Reproducibility']
   },
   {
-    id: 4,
     title: 'Generative & Agentic AI Explained',
-    provider: 'NVIDIA Deep Learning Institute (DLI)',
-    date: '2026',
+    organization: 'NVIDIA Deep Learning Institute (DLI)',
+    location: 'Online',
+    period: '2026',
     bullets: [
-      'Studied foundations of generative AI (LLMs, embeddings) and how agentic systems plan, use tools, and iterate.',
-      'Reviewed common patterns (RAG, tool calling, workflow orchestration) and how to evaluate agent outputs.',
-      'Covered practical considerations: hallucinations, safety, reliability, and responsible deployment.'
+      'Studied foundations of generative AI (LLMs, embeddings) and how agentic systems plan and use tools.',
+      'Reviewed patterns like RAG, tool calling, and workflow orchestration, plus evaluation basics.',
+      'Covered practical risks and reliability considerations (hallucinations, bias, and responsible use).'
     ],
-    credential: ''
+    tags: ['GenAI', 'Agentic AI', 'LLMs', 'RAG']
   },
   {
-    id: 5,
     title: 'Build Deep Research Agent',
-    provider: 'NVIDIA Deep Learning Institute (DLI)',
-    date: '2026',
+    organization: 'NVIDIA Deep Learning Institute (DLI)',
+    location: 'Online',
+    period: '2026',
     bullets: [
-      'Learned how research-style agents can break down complex questions into sub-tasks and synthesize findings.',
-      'Explored workflows for search, summarization, citation management, and iterative refinement.',
-      'Focused on producing structured, verifiable outputs with clear reasoning and traceability.'
+      'Learned agent workflows for breaking down complex questions into research sub-tasks.',
+      'Explored search → synthesis → structured reporting patterns with iterative refinement.',
+      'Focused on producing verifiable outputs with traceability and clear reasoning.'
     ],
-    credential: ''
+    tags: ['Agents', 'Research', 'Tool Use', 'Evaluation']
   },
   {
-    id: 6,
     title: 'Intro to Multi-Modal Data Curation',
-    provider: 'NVIDIA Deep Learning Institute (DLI)',
-    date: '2026',
+    organization: 'NVIDIA Deep Learning Institute (DLI)',
+    location: 'Online',
+    period: '2026',
     bullets: [
-      'Covered core principles for curating multi-modal datasets (text, image, tabular, and other modalities).',
+      'Covered principles for curating multi-modal datasets (text, image, tabular, and other modalities).',
       'Learned strategies for labeling, quality checks, deduplication, balancing, and bias detection.',
-      'Emphasized dataset documentation and governance to support reliable model training and evaluation.'
+      'Emphasized dataset documentation to support reliable training and evaluation.'
     ],
-    credential: ''
+    tags: ['Multi-Modal', 'Data Curation', 'Quality', 'Bias']
   }
 ];
 
 export function Trainings() {
   return (
-    <section id="trainings" className="space-y-6 scroll-mt-24">
-      <div className="flex items-end justify-between gap-4 flex-wrap">
-        <h2 className="text-3xl">TRAININGS</h2>
-      </div>
+    <section id="trainings" className="py-20 px-6 bg-gray-50">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-8 text-center">
+          <h2 className="text-4xl mb-4">TRAININGS</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            NVIDIA Deep Learning Institute coursework focused on GPU acceleration, CUDA Python, and modern AI workflows.
+          </p>
+        </div>
 
-      <div className="space-y-4">
-        {trainings.map((t) => (
-          <div
-            key={t.id}
-            className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition"
-          >
-            <div className="flex items-start justify-between gap-4 flex-wrap">
-              <div>
-                <h3 className="text-xl">{t.title}</h3>
-                <p className="text-sm text-gray-600">
-                  {t.provider} • {t.date}
-                </p>
+        <div className="bg-white p-8 rounded-xl shadow-sm">
+          <div className="space-y-8">
+            {trainings.map((t, index) => (
+              <div
+                key={index}
+                className="flex gap-4 pb-8 border-b border-gray-200 last:border-b-0 last:pb-0"
+              >
+                <div className="flex-shrink-0">
+                  <div className="bg-blue-100 p-3 rounded-lg">
+                    <GraduationCap className="w-6 h-6 text-blue-600" />
+                  </div>
+                </div>
+
+                <div className="flex-1">
+                  <div className="mb-2">
+                    <h3 className="text-xl">{t.title}</h3>
+                    <p className="text-blue-600">
+                      {t.organization}{' '}
+                      <span className="text-gray-500">• {t.location}</span>
+                    </p>
+                    <span className="text-gray-500 text-sm">{t.period}</span>
+                  </div>
+
+                  <ul className="text-gray-600 mb-4 list-disc pl-5 space-y-2">
+                    {t.bullets.map((b, i) => (
+                      <li key={i}>{b}</li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-wrap gap-2">
+                    {t.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
-
-              {t.credential?.trim() ? (
-                <a
-                  href={t.credential}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  Credential
-                </a>
-              ) : null}
-            </div>
-
-            <ul className="mt-3 list-disc pl-5 space-y-1 text-sm text-gray-700">
-              {t.bullets.map((b, idx) => (
-                <li key={idx}>{b}</li>
-              ))}
-            </ul>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );
