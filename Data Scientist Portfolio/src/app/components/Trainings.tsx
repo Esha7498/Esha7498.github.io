@@ -12,26 +12,76 @@ type Training = {
 const trainings: Training[] = [
   {
     id: 1,
-    title: 'Generative AI Explained',
+    title: 'Fundamentals of Accelerated Computing with CUDA Python',
     provider: 'NVIDIA Deep Learning Institute (DLI)',
     date: '2026',
     bullets: [
-      'Learned core GenAI concepts (LLMs, transformers, embeddings) and how modern generative systems work.',
-      'Reviewed common GenAI applications (assistants, content generation, search/RAG) and evaluation basics.',
-      'Studied practical considerations: data quality, bias, hallucinations, and responsible use.'
+      'Learned GPU acceleration fundamentals using CUDA Python, including kernels, threads/blocks, and memory concepts.',
+      'Practiced accelerating Python workloads by moving compute-intensive sections onto the GPU.',
+      'Applied performance intuition around parallelism, memory access patterns, and profiling-driven optimization.'
     ],
-    credential: '' // paste link if you have one
+    credential: ''
+  },
+  {
+    id: 2,
+    title: 'Accelerate Data Science Workflows with Zero Code Changes',
+    provider: 'NVIDIA Deep Learning Institute (DLI)',
+    date: '2026',
+    bullets: [
+      'Explored approaches to speed up existing data science pipelines with minimal/no changes to core Python code.',
+      'Learned how GPU-accelerated backends can improve dataframe and ML workloads while preserving familiar APIs.',
+      'Compared runtime and throughput before/after acceleration and identified best-fit workloads.'
+    ],
+    credential: ''
+  },
+  {
+    id: 3,
+    title: 'Accelerating End-to-End Data Science Workflows',
+    provider: 'NVIDIA Deep Learning Institute (DLI)',
+    date: '2026',
+    bullets: [
+      'Covered GPU-accelerated, end-to-end data science workflow design from data prep → training → evaluation.',
+      'Worked through practical optimization levers (batching, data loading, compute vs. memory bottlenecks).',
+      'Emphasized reproducible pipelines and measurement-driven improvements.'
+    ],
+    credential: ''
+  },
+  {
+    id: 4,
+    title: 'Generative & Agentic AI Explained',
+    provider: 'NVIDIA Deep Learning Institute (DLI)',
+    date: '2026',
+    bullets: [
+      'Studied foundations of generative AI (LLMs, embeddings) and how agentic systems plan, use tools, and iterate.',
+      'Reviewed common patterns (RAG, tool calling, workflow orchestration) and how to evaluate agent outputs.',
+      'Covered practical considerations: hallucinations, safety, reliability, and responsible deployment.'
+    ],
+    credential: ''
+  },
+  {
+    id: 5,
+    title: 'Build Deep Research Agent',
+    provider: 'NVIDIA Deep Learning Institute (DLI)',
+    date: '2026',
+    bullets: [
+      'Learned how research-style agents can break down complex questions into sub-tasks and synthesize findings.',
+      'Explored workflows for search, summarization, citation management, and iterative refinement.',
+      'Focused on producing structured, verifiable outputs with clear reasoning and traceability.'
+    ],
+    credential: ''
+  },
+  {
+    id: 6,
+    title: 'Intro to Multi-Modal Data Curation',
+    provider: 'NVIDIA Deep Learning Institute (DLI)',
+    date: '2026',
+    bullets: [
+      'Covered core principles for curating multi-modal datasets (text, image, tabular, and other modalities).',
+      'Learned strategies for labeling, quality checks, deduplication, balancing, and bias detection.',
+      'Emphasized dataset documentation and governance to support reliable model training and evaluation.'
+    ],
+    credential: ''
   }
-
-  // ✅ Add more trainings like this:
-  // {
-  //   id: 2,
-  //   title: '...',
-  //   provider: '...',
-  //   date: '...',
-  //   bullets: ['...', '...'],
-  //   credential: '...'
-  // }
 ];
 
 export function Trainings() {
