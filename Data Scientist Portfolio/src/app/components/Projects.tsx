@@ -17,17 +17,17 @@ const projects = [
     slides: ''
   },
   {
-    id: 2,
-    title: 'SBA Loan Insights Dashboard (R Shiny)',
-    description:
-      'Interactive R Shiny dashboard analyzing U.S. SBA 7(a) loans (FY2020–Present) across states, industries, and business types, with maps and trend insights.',
-    tags: ['R', 'Shiny', 'Data Visualization', 'EDA'],
-    image:
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1080&q=80',
-    github: 'https://github.com/Esha7498/SBA-Loan-Insights-R_Shiny-Dashboard.git',
-    demo: 'https://fpqndl-esha-teware.shinyapps.io/SBA-Loan-Insights-R_Shiny-Dashboard/', // ✅ only this one has demo
-    slides: '' // optional
-  },
+  id: 2,
+  title: 'DC Cherry Blossom Peak Bloom Predictor (Time-Series ML)',
+  description:
+    'Time-series machine learning pipeline to forecast Washington, DC Yoshino peak bloom timing (DOY) using phenology-inspired features: winter chill, growing degree days (base 40°F), and winter Niño3.4. Evaluated with walk-forward TimeSeriesSplit (MAE ≈ 4.46 ± 1.28 days). Early 2026 forecast (cutoff: 2026-02-24): Apr 03, 2026 (DOY 93).',
+  tags: ['Python', 'Time Series', 'XGBoost', 'scikit-learn', 'Open-Meteo API', 'SHAP'],
+  image:
+    'https://images.unsplash.com/photo-1520543957103-4e1e5f8f2b3a?auto=format&fit=crop&w=1080&q=80',
+  github: 'https://github.com/Esha7498/dc-cherry-blossom-predictor.git',
+  demo: '',
+  slides: ''
+  }
   {
     id: 3,
     title: 'Bank Marketing Success Prediction (Portuguese Bank)',
@@ -42,6 +42,18 @@ const projects = [
   },
   {
     id: 4,
+    title: 'SBA Loan Insights Dashboard (R Shiny)',
+    description:
+      'Interactive R Shiny dashboard analyzing U.S. SBA 7(a) loans (FY2020–Present) across states, industries, and business types, with maps and trend insights.',
+    tags: ['R', 'Shiny', 'Data Visualization', 'EDA'],
+    image:
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1080&q=80',
+    github: 'https://github.com/Esha7498/SBA-Loan-Insights-R_Shiny-Dashboard.git',
+    demo: 'https://fpqndl-esha-teware.shinyapps.io/SBA-Loan-Insights-R_Shiny-Dashboard/', // ✅ only this one has demo
+    slides: '' // optional
+  },
+  {
+    id: 5,
     title: 'Disaster-Related SBA Loan Approvals (Hierarchical Bayesian / JAGS)',
     description:
       'Applied a hierarchical Bayesian model (MCMC via JAGS) to analyze factors influencing disaster-related small business loan approval rates. Integrated economic, political, and geographic context, performed imputation, diagnostics, and reproducible reporting via Quarto.',
@@ -53,7 +65,7 @@ const projects = [
     slides: ''
   },
     {
-    id: 5,
+    id: 6,
     title: 'Environmental Attitudes Regression (Reproduction + Extension)',
     description:
       'Reproduced and extended a 2024 PLOS ONE study using the Theory of Planned Behavior (SN, PBC, SCE → EA). Verified reliability (Cronbach’s α ≈ 0.918), replicated multiple regression results, and added interaction + logistic regression extensions for high environmental attitudes (EA ≥ 4).',
