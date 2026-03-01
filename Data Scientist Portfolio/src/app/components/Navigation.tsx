@@ -6,9 +6,9 @@ export function Navigation() {
 
   const navItems = [
     { label: 'Home', href: '#home' },
+    { label: 'Projects', href: '#projects' },
     { label: 'Skills', href: '#skills' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Projects', href: '#projects' }
+    { label: 'Experience', href: '#experience' }
   ];
 
   return (
