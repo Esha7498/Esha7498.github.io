@@ -3,7 +3,6 @@ import { Navigation } from './components/Navigation';
 import { MainContent } from './components/MainContent';
 import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
-import { Trainings } from './components/Trainings';
 import { Skills } from './components/Skills';
 
 export default function App() {
@@ -19,7 +18,7 @@ export default function App() {
       <Projects />
       <Experience />
       <Skills />
-      <Trainings />
+     
     </>
   );
 }
