@@ -1,6 +1,6 @@
-import { Github, Linkedin, MapPin, Download, GraduationCap, ExternalLink } from 'lucide-react';
+// src/components/MainContent.tsx
+import { Github, Linkedin, Download, GraduationCap, ExternalLink } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Projects } from './Projects';
 
 export function MainContent() {
   return (
@@ -29,7 +29,7 @@ export function MainContent() {
               real-world problems with data-driven solutions.
             </p>
 
-            {/* Social Links (Horizontal Buttons) */}
+            {/* Social Links */}
             <div className="flex flex-row flex-wrap items-center gap-4 pt-4 border-t border-gray-200">
               <a
                 href="https://github.com/Esha7498"
@@ -76,25 +76,17 @@ export function MainContent() {
                 <span>Download</span>
               </a>
             </div>
-
-            {/* Contact Info */}
-            <div className="pt-4 border-t border-gray-200 space-y-3">
-              <h3 className="text-xl">CONTACT</h3>
-              <a href="mailto:eshateware44@gmail.com" className="text-blue-600 hover:underline block">
-                eshateware44@gmail.com
-              </a>
-              <div className="flex items-center gap-2 text-gray-600">
-                <MapPin className="w-4 h-4" />
-                <span>Washington, DC</span>
-              </div>
-            </div>
           </div>
+        </div>
 
-          {/* Education */}
+        {/* Right Column (Education moved here) */}
+        <div className="space-y-8">
           <div className="space-y-4 pt-4 border-t border-gray-200">
             <h3 className="text-2xl">EDUCATION</h3>
-            <div className="space-y-6">
-              <div className="space-y-2">
+
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+              <div className="space-y-6">
+                {/* MS */}
                 <div className="flex items-start gap-3">
                   <GraduationCap className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
@@ -107,9 +99,10 @@ export function MainContent() {
                     </p>
                   </div>
                 </div>
-              </div>
 
-              <div className="space-y-2">
+                <div className="border-t border-gray-200" />
+
+                {/* BS */}
                 <div className="flex items-start gap-3">
                   <GraduationCap className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
@@ -124,14 +117,8 @@ export function MainContent() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        {/* Right Column */}
-        <div className="space-y-12">
-          {/* Projects Section */}
-          <div id="projects">
-            <Projects />
+            {/* If you still want email/location, add a small line here (optional) */}
           </div>
         </div>
       </div>
