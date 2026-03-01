@@ -79,7 +79,7 @@ export function MainContent() {
         {/* LEFT: Hero */}
         <div className="space-y-8">
           <div className="space-y-6">
-            <div className="w-72 h-56 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100">
+            <div className="w-48 h-48 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100">
               <ImageWithFallback
                 src="/profile.JPG"
                 alt="Esha Teware"
