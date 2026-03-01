@@ -55,7 +55,7 @@ const projects = [
     id: 5,
     title: 'Disaster-Related SBA Loan Approvals (Hierarchical Bayesian / JAGS)',
     description:
-      'Applied a hierarchical Bayesian model (MCMC via JAGS) to analyze factors influencing disaster-related small business loan approval rates. Integrated economic, political, and geographic context, performed imputation, diagnostics, and reproducible reporting via Quarto.',
+      'Applied a hierarchical Bayesian model (MCMC via JAGS) to analyze factors influencing disaster-related small business loan approval rates. Integrated context, imputation, diagnostics, and reproducible reporting via Quarto.',
     tags: ['R', 'Bayesian Modeling', 'JAGS', 'MCMC', 'Quarto'],
     image:
       'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1080&q=80',
@@ -67,7 +67,7 @@ const projects = [
     id: 6,
     title: 'Environmental Attitudes Regression (Reproduction + Extension)',
     description:
-      'Reproduced and extended a 2024 PLOS ONE study using the Theory of Planned Behavior (SN, PBC, SCE → EA). Verified reliability (Cronbach’s α ≈ 0.918), replicated multiple regression results, and added interaction + logistic regression extensions for high environmental attitudes (EA ≥ 4).',
+      'Reproduced and extended a 2024 PLOS ONE study using TPB (SN, PBC, SCE → EA). Verified reliability, replicated regression results, and added interaction + logistic extensions for high EA.',
     tags: ['R', 'Regression', 'Reproducibility', 'PLOS ONE', 'Research'],
     image:
       'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1080&q=80',
@@ -93,16 +93,17 @@ export function Projects() {
   return (
     <section id="projects" className="py-20 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
-        {/* Header (matches Experience style) */}
+        {/* Header (same style as Experience) */}
         <div className="mb-8 text-center">
           <h2 className="text-4xl mb-4">PROJECTS</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            A selection of projects highlighting Python, machine learning, and end-to-end analytics work.
+            Selected projects showcasing Python, ML/CV, and end-to-end analytics.
           </p>
         </div>
 
-        {/* Container (matches Experience card) */}
+        {/* Container (white card like Experience/Skills sections) */}
         <div className="bg-white p-8 rounded-xl shadow-sm">
+          {/* Filter row */}
           <div className="flex items-end justify-between gap-4 flex-wrap mb-6">
             <div className="min-w-[220px] ml-auto">
               <label className="block text-xs text-gray-500 mb-1">Filter by</label>
@@ -121,80 +122,85 @@ export function Projects() {
             </div>
           </div>
 
-          <div className="space-y-6">
+          {/* ✅ Grid cards like Skills */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition group"
+                className="rounded-xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-lg transition bg-white flex flex-col"
               >
-                <div className="grid md:grid-cols-[200px_1fr] gap-4">
-                  <div className="aspect-video md:aspect-square overflow-hidden bg-gray-100">
-                    <ImageWithFallback
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
-                    />
+                {/* Image */}
+                <div className="h-40 bg-gray-100 overflow-hidden">
+                  <ImageWithFallback
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover hover:scale-105 transition duration-300"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="text-lg">{project.title}</h3>
+                  <p className="text-gray-600 text-sm mt-2 line-clamp-4">
+                    {project.description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {project.tags.slice(0, 6).map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 bg-blue-50 text-blue-600 rounded text-xs"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
 
-                  <div className="p-6 space-y-3">
-                    <h3 className="text-xl">{project.title}</h3>
-                    <p className="text-gray-600 text-sm">{project.description}</p>
+                  {/* Links */}
+                  <div className="flex gap-4 mt-5 pt-4 border-t border-gray-100">
+                    {project.github?.trim() && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition text-sm"
+                      >
+                        <Github className="w-4 h-4" />
+                        Code
+                      </a>
+                    )}
 
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-1 bg-blue-50 text-blue-600 rounded text-xs"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex gap-4 pt-2">
-                      {project.github?.trim() && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition text-sm"
-                        >
-                          <Github className="w-4 h-4" />
-                          Code
-                        </a>
-                      )}
-
-                      {project.demo?.trim() ? (
-                        <a
-                          href={project.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition text-sm"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          Live Demo
-                        </a>
-                      ) : project.slides?.trim() ? (
-                        <a
-                          href={project.slides}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition text-sm"
-                        >
-                          <FileText className="w-4 h-4" />
-                          Slides
-                        </a>
-                      ) : null}
-                    </div>
+                    {project.demo?.trim() ? (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition text-sm"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        Demo
+                      </a>
+                    ) : project.slides?.trim() ? (
+                      <a
+                        href={project.slides}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition text-sm"
+                      >
+                        <FileText className="w-4 h-4" />
+                        Slides
+                      </a>
+                    ) : null}
                   </div>
                 </div>
               </div>
             ))}
-
-            {filteredProjects.length === 0 && (
-              <div className="text-sm text-gray-500">No projects match this filter.</div>
-            )}
           </div>
+
+          {filteredProjects.length === 0 && (
+            <div className="text-sm text-gray-500 mt-4">No projects match this filter.</div>
+          )}
         </div>
       </div>
     </section>
