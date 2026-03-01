@@ -75,7 +75,6 @@ export function MainContent() {
       <div className="grid lg:grid-cols-2 gap-12">
         {/* Left Column */}
         <div className="space-y-8">
-          {/* Profile Section */}
           <div className="space-y-6">
             <div className="w-48 h-48 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100">
               <ImageWithFallback
@@ -120,7 +119,6 @@ export function MainContent() {
                 <span>LinkedIn</span>
               </a>
 
-              {/* View Resume */}
               <a
                 href="/e_teware_R.pdf"
                 target="_blank"
@@ -132,7 +130,6 @@ export function MainContent() {
                 <span>View Resume</span>
               </a>
 
-              {/* Download Resume */}
               <a
                 href="/e_teware_R.pdf"
                 download
@@ -146,15 +143,13 @@ export function MainContent() {
           </div>
         </div>
 
-        {/* Right Column (Education + Trainings) */}
+        {/* Right Column (Education) */}
         <div className="space-y-8">
-          {/* Education */}
           <div className="space-y-4 pt-4 border-t border-gray-200">
             <h3 className="text-2xl">EDUCATION</h3>
 
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
               <div className="space-y-6">
-                {/* MS */}
                 <div className="flex items-start gap-3">
                   <GraduationCap className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
@@ -170,7 +165,6 @@ export function MainContent() {
 
                 <div className="border-t border-gray-200" />
 
-                {/* BS */}
                 <div className="flex items-start gap-3">
                   <GraduationCap className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
@@ -185,36 +179,43 @@ export function MainContent() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* Trainings (under Education) */}
-            <div className="mt-8">
-              <h3 className="text-2xl">TRAININGS</h3>
+        {/* ✅ Full-width Trainings row (spans both columns) */}
+        <div className="lg:col-span-2">
+          <div className="mt-2 pt-6 border-t border-gray-200">
+            <div className="flex items-end justify-between gap-4 flex-wrap">
+              <div>
+                <h3 className="text-2xl">TRAININGS</h3>
+                <p className="text-gray-600 mt-2">
+                  <span className="font-medium text-gray-800">
+                    NVIDIA Deep Learning Institute (DLI)
+                  </span>
+                  <span className="text-gray-500"> </span>
+                </p>
+              </div>
+            </div>
 
-              {/* Provider visible (outside dropdowns) */}
-              <p className="text-gray-600 mt-2">
-                <span className="font-medium text-gray-800">
-                  NVIDIA Deep Learning Institute (DLI)
-                </span>
-                <span className="text-gray-500"> • 2026</span>
-              </p>
+            {/* Cards like Skills + dropdown */}
+            <div className="mt-4 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {dliTrainings.map((t, idx) => {
+                const isOpen = openIndex === idx;
 
-              <div className="mt-4 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                {dliTrainings.map((t, idx) => {
-                  const isOpen = openIndex === idx;
-
-                  return (
-                    <div
-                      key={t.title}
-                      className="border-b border-gray-200 last:border-b-0"
+                return (
+                  <div
+                    key={t.title}
+                    className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenIndex(isOpen ? null : idx)}
+                      className="w-full text-left p-5 hover:bg-gray-50 transition"
                     >
-                      <button
-                        type="button"
-                        onClick={() => setOpenIndex(isOpen ? null : idx)}
-                        className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left hover:bg-gray-50 transition"
-                      >
+                      <div className="flex items-start justify-between gap-3">
                         <div>
                           <p className="text-gray-900">{t.title}</p>
-                          <p className="text-sm text-gray-500">Click to view details</p>
+                          <p className="text-sm text-gray-500 mt-1">Click to view details</p>
                         </div>
 
                         <ChevronDown
@@ -222,32 +223,42 @@ export function MainContent() {
                             isOpen ? 'rotate-180' : ''
                           }`}
                         />
-                      </button>
+                      </div>
 
-                      {isOpen && (
-                        <div className="px-6 pb-5">
-                          <ul className="text-gray-600 mb-4 list-disc pl-5 space-y-2">
-                            {t.bullets.map((b, i) => (
-                              <li key={i}>{b}</li>
-                            ))}
-                          </ul>
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {t.tags.slice(0, 5).map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </button>
 
-                          <div className="flex flex-wrap gap-2">
-                            {t.tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
+                    {isOpen && (
+                      <div className="px-5 pb-5">
+                        <ul className="text-gray-600 list-disc pl-5 space-y-2 text-sm">
+                          {t.bullets.map((b, i) => (
+                            <li key={i}>{b}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Projects hint so they know to scroll */}
+            <div className="mt-8 text-center">
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition"
+              >
+                Scroll down to view Projects ↓
+              </a>
             </div>
           </div>
         </div>
