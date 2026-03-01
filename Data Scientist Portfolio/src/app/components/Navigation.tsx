@@ -8,7 +8,6 @@ export function Navigation() {
     { label: 'Home', href: '#home' },
     { label: 'Skills', href: '#skills' },
     { label: 'Experience', href: '#experience' },
-    { label: 'Trainings', href: '#trainings' }, // ✅ added
     { label: 'Projects', href: '#projects' }
   ];
 
