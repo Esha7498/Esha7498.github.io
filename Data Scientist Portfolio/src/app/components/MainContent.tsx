@@ -145,8 +145,12 @@ export function MainContent() {
 
         {/* Right Column (Education) */}
         <div className="space-y-8">
-          <div className="space-y-4 pt-4 border-t border-gray-200">
-            <h3 className="text-2xl">EDUCATION</h3>
+          {/* ✅ removed the thin line by deleting pt-4 border-t */}
+          <div className="space-y-4">
+            {/* ✅ centered heading like other sections */}
+            <div className="text-center">
+              <h3 className="text-2xl">EDUCATION</h3>
+            </div>
 
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
               <div className="space-y-6">
@@ -182,23 +186,23 @@ export function MainContent() {
           </div>
         </div>
 
-        {/* ✅ Full-width Trainings row (spans both columns) */}
+        {/* Full-width Trainings row (spans both columns) */}
         <div className="lg:col-span-2">
-          <div className="mt-2 pt-6 border-t border-gray-200">
-            <div className="flex items-end justify-between gap-4 flex-wrap">
-              <div>
-                <h3 className="text-2xl">TRAININGS</h3>
-                <p className="text-gray-600 mt-2">
-                  <span className="font-medium text-gray-800">
-                    NVIDIA Deep Learning Institute (DLI)
-                  </span>
-                  <span className="text-gray-500"> </span>
-                </p>
-              </div>
+          {/* ✅ remove the top thin line by removing border-t */}
+          <div className="mt-2 pt-6">
+            {/* ✅ centered heading like other sections */}
+            <div className="mb-6 text-center">
+              <h3 className="text-2xl">TRAININGS</h3>
+              <p className="text-gray-600 mt-2">
+                <span className="font-medium text-gray-800">
+                  NVIDIA Deep Learning Institute (DLI)
+                </span>
+                <span className="text-gray-500"> • 2026</span>
+              </p>
             </div>
 
             {/* Cards like Skills + dropdown */}
-            <div className="mt-4 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {dliTrainings.map((t, idx) => {
                 const isOpen = openIndex === idx;
 
@@ -251,7 +255,7 @@ export function MainContent() {
               })}
             </div>
 
-            {/* Projects hint so they know to scroll */}
+            {/* Projects hint */}
             <div className="mt-8 text-center">
               <a
                 href="#projects"
