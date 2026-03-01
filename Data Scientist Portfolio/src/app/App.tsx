@@ -1,24 +1,25 @@
 // src/App.tsx (or your main page file)
 import { Navigation } from './components/Navigation';
 import { MainContent } from './components/MainContent';
+import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
-import { Skills } from './components/Skills';
+import { Footer } from './components/Footer';
 
 export default function App() {
   return (
     <>
       <Navigation />
+
       <div id="home" className="pt-20">
         <MainContent />
       </div>
-
-      {/* Full-width sections in the order you want */}
-      
       <Projects />
       <Experience />
-      <Skills />
-     
+       <Skills />
+
+      {/* Contact info lives here */}
+      <Footer />
     </>
   );
 }
