@@ -1,8 +1,75 @@
 // src/components/MainContent.tsx
-import { Github, Linkedin, Download, GraduationCap, ExternalLink } from 'lucide-react';
+import { useState } from 'react';
+import {
+  Github,
+  Linkedin,
+  Download,
+  GraduationCap,
+  ExternalLink,
+  ChevronDown
+} from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
+const dliTrainings = [
+  {
+    title: 'Fundamentals of Accelerated Computing with CUDA Python',
+    bullets: [
+      'Learned GPU acceleration fundamentals using CUDA Python (kernels, threads/blocks, and memory concepts).',
+      'Practiced accelerating Python workloads by moving compute-intensive sections onto the GPU.',
+      'Built performance intuition around parallelism, memory access patterns, and profiling-driven optimization.'
+    ],
+    tags: ['CUDA Python', 'GPU', 'Parallel Computing', 'Performance']
+  },
+  {
+    title: 'Accelerate Data Science Workflows with Zero Code Changes',
+    bullets: [
+      'Explored approaches to speed up existing data science pipelines with minimal/no changes to core code.',
+      'Learned how GPU-accelerated backends can accelerate dataframe and ML workloads while preserving familiar APIs.',
+      'Compared runtime before/after acceleration and identified best-fit workflows for GPU speedups.'
+    ],
+    tags: ['GPU Acceleration', 'Data Science', 'Performance', 'Workflows']
+  },
+  {
+    title: 'Accelerating End-to-End Data Science Workflows',
+    bullets: [
+      'Covered end-to-end workflow optimization from data prep → training → evaluation using accelerated tooling.',
+      'Studied practical optimization levers (batching, data loading, compute vs. memory bottlenecks).',
+      'Emphasized reproducible pipelines and measurement-driven improvements.'
+    ],
+    tags: ['End-to-End Pipelines', 'GPU', 'Optimization', 'Reproducibility']
+  },
+  {
+    title: 'Generative & Agentic AI Explained',
+    bullets: [
+      'Studied foundations of generative AI (LLMs, embeddings) and how agentic systems plan and use tools.',
+      'Reviewed patterns like RAG, tool calling, and workflow orchestration, plus evaluation basics.',
+      'Covered practical risks and reliability considerations (hallucinations, bias, and responsible use).'
+    ],
+    tags: ['GenAI', 'Agentic AI', 'LLMs', 'RAG']
+  },
+  {
+    title: 'Build Deep Research Agent',
+    bullets: [
+      'Learned agent workflows for breaking down complex questions into research sub-tasks.',
+      'Explored search → synthesis → structured reporting patterns with iterative refinement.',
+      'Focused on producing verifiable outputs with traceability and clear reasoning.'
+    ],
+    tags: ['Agents', 'Research', 'Tool Use', 'Evaluation']
+  },
+  {
+    title: 'Intro to Multi-Modal Data Curation',
+    bullets: [
+      'Covered principles for curating multi-modal datasets (text, image, tabular, and other modalities).',
+      'Learned strategies for labeling, quality checks, deduplication, balancing, and bias detection.',
+      'Emphasized dataset documentation to support reliable training and evaluation.'
+    ],
+    tags: ['Multi-Modal', 'Data Curation', 'Quality', 'Bias']
+  }
+];
+
 export function MainContent() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
     <div className="max-w-7xl mx-auto px-6 py-8">
       <div className="grid lg:grid-cols-2 gap-12">
@@ -79,8 +146,9 @@ export function MainContent() {
           </div>
         </div>
 
-        {/* Right Column (Education moved here) */}
+        {/* Right Column (Education + Trainings) */}
         <div className="space-y-8">
+          {/* Education */}
           <div className="space-y-4 pt-4 border-t border-gray-200">
             <h3 className="text-2xl">EDUCATION</h3>
 
@@ -118,7 +186,69 @@ export function MainContent() {
               </div>
             </div>
 
-            {/* If you still want email/location, add a small line here (optional) */}
+            {/* Trainings (under Education) */}
+            <div className="mt-8">
+              <h3 className="text-2xl">TRAININGS</h3>
+
+              {/* Provider visible (outside dropdowns) */}
+              <p className="text-gray-600 mt-2">
+                <span className="font-medium text-gray-800">
+                  NVIDIA Deep Learning Institute (DLI)
+                </span>
+                <span className="text-gray-500"> • 2026</span>
+              </p>
+
+              <div className="mt-4 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                {dliTrainings.map((t, idx) => {
+                  const isOpen = openIndex === idx;
+
+                  return (
+                    <div
+                      key={t.title}
+                      className="border-b border-gray-200 last:border-b-0"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setOpenIndex(isOpen ? null : idx)}
+                        className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left hover:bg-gray-50 transition"
+                      >
+                        <div>
+                          <p className="text-gray-900">{t.title}</p>
+                          <p className="text-sm text-gray-500">Click to view details</p>
+                        </div>
+
+                        <ChevronDown
+                          className={`w-5 h-5 text-gray-500 transition-transform ${
+                            isOpen ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+
+                      {isOpen && (
+                        <div className="px-6 pb-5">
+                          <ul className="text-gray-600 mb-4 list-disc pl-5 space-y-2">
+                            {t.bullets.map((b, i) => (
+                              <li key={i}>{b}</li>
+                            ))}
+                          </ul>
+
+                          <div className="flex flex-wrap gap-2">
+                            {t.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
