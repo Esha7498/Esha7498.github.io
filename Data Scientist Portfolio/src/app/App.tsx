@@ -15,9 +15,10 @@ export default function App() {
       </div>
 
       {/* Full-width sections in the order you want */}
-      <Skills />
+      
       <Projects />
       <Experience />
+      <Skills />
       <Trainings />
     </>
   );
