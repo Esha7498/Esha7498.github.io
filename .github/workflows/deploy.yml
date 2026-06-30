@@ -17,9 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: "Data Scientist Portfolio"
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,11 +27,18 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install
+      - name: Install dependencies
+        working-directory: "Data Scientist Portfolio"
         run: npm install
 
       - name: Build
+        working-directory: "Data Scientist Portfolio"
         run: npm run build
+
+      - name: Check build output
+        run: |
+          ls -la "Data Scientist Portfolio/dist"
+          test -f "Data Scientist Portfolio/dist/index.html"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -45,6 +50,7 @@ jobs:
     needs: build
     environment:
       name: github-pages
+
     steps:
       - name: Deploy
         uses: actions/deploy-pages@v4
