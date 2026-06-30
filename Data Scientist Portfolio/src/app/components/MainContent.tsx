@@ -123,7 +123,7 @@ export function MainContent() {
               </a>
 
               <a
-                href="/e_teware_R.pdf"
+                href="/Emily_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 bg-white text-gray-700
