@@ -82,7 +82,7 @@ export function MainContent() {
             <div className="w-48 h-48 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100">
               <ImageWithFallback
                 src="/profile.JPG"
-                alt="Emily T.(Esha)"
+                alt="Esha Teware"
                 className="w-full h-full object-cover object-center"
               />
             </div>
