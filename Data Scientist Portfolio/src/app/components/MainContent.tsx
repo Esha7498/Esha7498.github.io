@@ -82,13 +82,13 @@ export function MainContent() {
             <div className="w-48 h-48 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100">
               <ImageWithFallback
                 src="/profile.JPG"
-                alt="Esha Teware"
+                alt="Emily T.(Esha)"
                 className="w-full h-full object-cover object-center"
               />
             </div>
 
             <div className="space-y-2">
-              <h1 className="text-5xl font-semibold tracking-tight">Esha Teware</h1>
+              <h1 className="text-5xl font-semibold tracking-tight">Emily T.(Esha)</h1>
               <h2 className="text-2xl text-gray-600">Data Scientist</h2>
             </div>
 
@@ -112,7 +112,7 @@ export function MainContent() {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/e-teware/"
+                href="https://www.linkedin.com/in/t-emily/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 bg-white text-gray-700
@@ -134,7 +134,7 @@ export function MainContent() {
               </a>
 
               <a
-                href="/e_teware_R.pdf"
+                href="/Resume Emily Terry.pdf"
                 download
                 className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 bg-white text-gray-700
                            hover:text-blue-600 hover:border-blue-200 hover:bg-gray-50 transition"
