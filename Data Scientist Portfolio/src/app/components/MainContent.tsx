@@ -134,7 +134,7 @@ export function MainContent() {
               </a>
 
               <a
-                href="/Resume Emily Terry.pdf"
+                href="/Emily_Resume.pdf"
                 download
                 className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 bg-white text-gray-700
                            hover:text-blue-600 hover:border-blue-200 hover:bg-gray-50 transition"
